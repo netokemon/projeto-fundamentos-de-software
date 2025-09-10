@@ -16,6 +16,11 @@ O grupo adota SCRUM, metodologia ágil, no desenvolvimento do produto. Dessa for
 
 ---
 
+## 📈 Backlog
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/8c27cdd3-2e8e-45a2-a3b5-8d8897bd0295" />
+
+---
+
 ## 🚨 Problema
 Apesar das portarias do Ministério da Saúde garantirem atendimento integral à população trans no SUS, a falta de acesso a especialistas e profissionais preparados ainda inviabiliza a efetivação da **Política Nacional de Saúde LGBT** na atenção básica.
 
