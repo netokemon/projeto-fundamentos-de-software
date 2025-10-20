@@ -69,6 +69,6 @@ O principal diferencial do TransCare é o seu foco exclusivo e o acompanhamento 
 
 Confira abaixo!
 
-![Diagrama de fluxos](./Sem título-2025-10-20-1753.png)
+![Diagrama de fluxos]([./Sem título-2025-10-20-1753.png](https://github.com/netokemon/projeto-fundamentos-de-software/blob/main/Sem%20ti%CC%81tulo-2025-10-20-1753.png))
 
 ---
