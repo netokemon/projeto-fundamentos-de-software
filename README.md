@@ -64,3 +64,11 @@ O principal diferencial do TransCare é o seu foco exclusivo e o acompanhamento 
 - Solução **abrangente e inclusiva** em nível nacional  
 
 ---
+
+## Diagrama de Fluxo de Atividades
+
+Confira abaixo!
+
+![Diagrama de fluxos](./Sem título-2025-10-20-1753.png)
+
+---
