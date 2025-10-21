@@ -69,7 +69,9 @@ O principal diferencial do TransCare é o seu foco exclusivo e o acompanhamento 
 
 Aqui está um print do protótipo Lo-Fi no Excalidraw para o projeto TransCare
 
+<img width="1919" height="1079" alt="Diagrama de Fluxo de Atividades" src="https://github.com/netokemon/projeto-fundamentos-de-software/blob/main/prot%C3%B3tipo%20lo-fi.png" />
 
+---
 
 ## 🧩 Diagrama de Fluxo de Atividades
 
