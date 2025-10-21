@@ -17,7 +17,7 @@ O grupo adota SCRUM, metodologia ágil, no desenvolvimento do produto. Dessa for
 ---
 
 ## 📈 Backlog
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/8c27cdd3-2e8e-45a2-a3b5-8d8897bd0295" />
+<img width="1919" height="1079" alt="Backlog" src="https://raw.githubusercontent.com/netokemon/projeto-fundamentos-de-software/9d4ef34203466b3d1c3036c44a6d501dcc5e5bd2/image.png" />
 
 ---
 
@@ -69,7 +69,7 @@ O principal diferencial do TransCare é o seu foco exclusivo e o acompanhamento 
 
 Aqui está um print do protótipo Lo-Fi no Excalidraw para o projeto TransCare
 
-<img width="1919" height="1079" alt="Diagrama de Fluxo de Atividades" src="https://github.com/netokemon/projeto-fundamentos-de-software/blob/main/prot%C3%B3tipo%20lo-fi.png" />
+<img width="1919" height="1079" alt="Protótipo Lo-Fi" src="https://github.com/netokemon/projeto-fundamentos-de-software/blob/main/prot%C3%B3tipo%20lo-fi.png" />
 
 ---
 
@@ -85,4 +85,4 @@ Aqui está um print do quadro dos diagramas de Fluxos de Atividades no Excalidra
 
 Aqui está um print do quadro de issues no Jira que usamos para acompanhar o projeto TransCare:
 
-<img width="1919" height="1079" alt="Bug Tracker no Jira" src="https://raw.githubusercontent.com/netokemon/projeto-fundamentos-de-software/refs/heads/main/image.png" />
+<img width="1919" height="1079" alt="Bug Tracker no Jira" src="https://raw.githubusercontent.com/netokemon/projeto-fundamentos-de-software/df708eb7e7cd58219d85b4fe7a99cf09023105be/bug%20tracker.png" />
