@@ -65,6 +65,12 @@ O principal diferencial do TransCare é o seu foco exclusivo e o acompanhamento 
 
 ---
 
+## 📱 Protótipo Lo-Fi
+
+Aqui está um print do protótipo Lo-Fi no Excalidraw para o projeto TransCare
+
+
+
 ## 🧩 Diagrama de Fluxo de Atividades
 
 Aqui está um print do quadro dos diagramas de Fluxos de Atividades no Excalidraw para o projeto TransCare:
