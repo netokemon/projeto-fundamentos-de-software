@@ -65,10 +65,16 @@ O principal diferencial do TransCare é o seu foco exclusivo e o acompanhamento 
 
 ---
 
-## Diagrama de Fluxo de Atividades
+## 🧩 Diagrama de Fluxo de Atividades
 
 Confira abaixo!
 
 <img width="1919" height="1079" alt="image" src="https://github.com/netokemon/projeto-fundamentos-de-software/blob/main/Sem%20ti%CC%81tulo-2025-10-20-1753.png" />
 
 ---
+
+## 🐞 Bug Tracker no Jira
+
+Aqui está um print do quadro de issues no Jira que usamos para acompanhar o projeto TransCare:
+
+<img width="1919" height="1079" alt=""Bug Tracker no Jira"" src="https://github.com/netokemon/projeto-fundamentos-de-software/blob/main/Sem%20ti%CC%81tulo-2025-10-20-1753.png" />
