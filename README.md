@@ -17,7 +17,8 @@ O grupo adota SCRUM, metodologia ágil, no desenvolvimento do produto. Dessa for
 ---
 
 ## 📈 Backlog
-<img width="1919" height="1079" alt="Backlog" src="https://raw.githubusercontent.com/netokemon/projeto-fundamentos-de-software/9d4ef34203466b3d1c3036c44a6d501dcc5e5bd2/image.png" />
+<img width="1440" height="661" alt="Captura de Tela 2025-10-22 às 19 03 08" src="https://github.com/user-attachments/assets/8db65590-c0b4-4537-b25c-62e384e51f5d" />
+
 
 ---
 
@@ -70,6 +71,15 @@ O principal diferencial do TransCare é o seu foco exclusivo e o acompanhamento 
 Aqui está um print do protótipo Lo-Fi no Excalidraw para o projeto TransCare
 
 <img width="1919" height="1079" alt="Protótipo Lo-Fi" src="https://github.com/netokemon/projeto-fundamentos-de-software/blob/main/prot%C3%B3tipo%20lo-fi.png" />
+
+---
+
+## Vídeo Screencast Protótipo Lo-Fi
+
+Aqui está um print do protótipo Lo-Fi no Excalidraw para o projeto TransCare
+
+[![Watch the video]()<img width="1044" height="776" alt="Captura de Tela 2025-10-22 às 18 56 09" src="https://github.com/user-attachments/assets/9412e378-3ee0-4804-b774-3aebcad4ca2e" />
+](https://drive.google.com/file/d/1xtvB1YuedRM4vLxrWENquD1-19D7A0J0/view?usp=sharing)
 
 ---
 
