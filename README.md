@@ -17,7 +17,9 @@ O grupo adota SCRUM, metodologia ágil, no desenvolvimento do produto. Dessa for
 ---
 
 ## 📈 Backlog
-<img width="1440" height="661" alt="Captura de Tela 2025-10-22 às 19 03 08" src="https://github.com/user-attachments/assets/8db65590-c0b4-4537-b25c-62e384e51f5d" />
+
+<img width="1440" height="661" alt="Captura de Tela 2025-10-22 às 19 03 08" src="https://github.com/user-attachments/assets/4cb29125-0690-41d1-86f1-aaf442bd1328" />
+
 
 
 ---
