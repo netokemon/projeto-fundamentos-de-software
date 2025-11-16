@@ -19,10 +19,8 @@ public class ConsultaController {
 
     //Endpoint da API para postar novas consultas no BD
     @PostMapping
-    public ResponseEntity<ConsultaResponse> createConsulta(
-            @RequestBody ConsultaRequest request,
-            @AuthenticationPrincipal UserDetails userDetails
-    ) {
+    public ResponseEntity<ConsultaResponse> createConsulta(@RequestBody ConsultaRequest request, @AuthenticationPrincipal UserDetails userDetails) 
+    {
         String userEmail = userDetails.getUsername();
         ConsultaResponse response = consultaService.createConsulta(request, userEmail);
         return ResponseEntity.ok(response);
@@ -30,9 +28,8 @@ public class ConsultaController {
 
     //Endpoint GET da API que retorna a lista das consultas
     @GetMapping("/minhas")
-    public ResponseEntity<List<ConsultaResponse>> getMinhasConsultas(
-            @AuthenticationPrincipal UserDetails userDetails
-    ) {
+    public ResponseEntity<List<ConsultaResponse>> getMinhasConsultas(@AuthenticationPrincipal UserDetails userDetails) 
+    {
         String userEmail = userDetails.getUsername();
         List<ConsultaResponse> consultas = consultaService.getMinhasConsultas(userEmail);
         return ResponseEntity.ok(consultas);

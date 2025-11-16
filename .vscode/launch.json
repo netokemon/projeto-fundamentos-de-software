@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TranscareApplication<transcare>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.usforus.transcare.TranscareApplication",
+            "projectName": "transcare",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
