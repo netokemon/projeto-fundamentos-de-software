@@ -1,7 +1,11 @@
 package com.usforus.transcare.auth;
 
+import com.usforus.transcare.config.JwtService;
 import com.usforus.transcare.user.User;
 import com.usforus.transcare.user.UserRepository;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -10,30 +14,51 @@ public class AuthService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
+    private final AuthenticationManager authenticationManager;
 
-    // Injeção de dependências via construtor
-    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public AuthService(UserRepository userRepository,
+                       PasswordEncoder passwordEncoder,
+                       JwtService jwtService,
+                       AuthenticationManager authenticationManager) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.jwtService = jwtService;
+        this.authenticationManager = authenticationManager;
     }
 
     public User register(RegisterRequest request) {
-        // 1. Verifica se o email já está em uso
         if (userRepository.findByEmail(request.email()).isPresent()) {
             throw new IllegalArgumentException("Email já cadastrado");
         }
-
-        // 2. CRIPTOGRAFA a senha antes de salvar
         String senhaHashed = passwordEncoder.encode(request.senha());
-
-        // 3. Cria o novo usuário
         User novoUsuario = new User(
                 request.nomeCompleto(),
                 request.email(),
-                senhaHashed // Salva a senha criptografada!
+                senhaHashed
+        );
+        return userRepository.save(novoUsuario);
+    }
+
+    public LoginResponse login(LoginRequest request) {
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        request.email(),
+                        request.senha()
+                )
         );
 
-        // 4. Salva no banco de dados
-        return userRepository.save(novoUsuario);
+        var user = userRepository.findByEmail(request.email())
+                .orElseThrow(() -> new IllegalStateException("Usuário não encontrado após autenticação"));
+
+        UserDetails userDetails = org.springframework.security.core.userdetails.User
+                .withUsername(user.getEmail())
+                .password(user.getSenha())
+                .authorities(java.util.Collections.emptyList())
+                .build();
+
+        String jwtToken = jwtService.generateToken(userDetails);
+
+        return new LoginResponse(jwtToken);
     }
 }

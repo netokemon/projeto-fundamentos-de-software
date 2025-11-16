@@ -2,43 +2,51 @@ package com.usforus.transcare.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    /**
-     * Bean para criptografar e verificar senhas.
-     * Usamos o BCrypt, que é o padrão da indústria.
-     */
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    private final JwtAuthFilter jwtAuthFilter;
+    // Injetamos o Provider, que agora vem da ApplicationConfig
+    private final AuthenticationProvider authenticationProvider;
+
+    // ATUALIZE O CONSTRUTOR
+    public SecurityConfig(JwtAuthFilter jwtAuthFilter, AuthenticationProvider authenticationProvider) {
+        this.jwtAuthFilter = jwtAuthFilter;
+        this.authenticationProvider = authenticationProvider;
     }
 
+    // REMOVEMOS UserDetailsService
+    // REMOVEMOS AuthenticationProvider (o método @Bean)
+    // REMOVEMOS AuthenticationManager (o método @Bean)
+
     /**
-     * O "Filtro de Segurança" principal da aplicação.
+     * ATUALIZADO: O filtro principal de segurança.
      */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                // Desabilita o CSRF, comum em APIs REST que usam tokens
                 .csrf(AbstractHttpConfigurer::disable)
-
-                // Define as regras de autorização
                 .authorizeHttpRequests(auth -> auth
-                        // Permite o acesso PÚBLICO ao endpoint de registro
-                        .requestMatchers("/auth/register").permitAll()
-
-                        // Exige autenticação para qualquer outra requisição
+                        .requestMatchers("/auth/**").permitAll()
                         .anyRequest().authenticated()
-                );
+                )
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+
+                // Usamos o Provider que foi injetado
+                .authenticationProvider(authenticationProvider)
+
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "usuarios") // Nome da tabela no banco
+@Table(name = "usuarios")
 public class User {
 
     @Id
@@ -14,13 +14,12 @@ public class User {
     @Column(nullable = false)
     private String nomeCompleto;
 
-    @Column(nullable = false, unique = true) // O email deve ser único
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
-    private String senha; // Esta será a senha HASHED
+    private String senha;
 
-    // Construtores, Getters e Setters
     public User() {
     }
 
