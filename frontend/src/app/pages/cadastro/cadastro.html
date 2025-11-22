@@ -1,0 +1,96 @@
+<div class="min-h-screen bg-sky-400 pt-8">
+
+  <main class="bg-white min-h-screen rounded-t-[2.5rem] px-6 py-8 shadow-2xl">
+
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">Cadastro</h1>
+      <p class="text-gray-500 text-sm leading-relaxed">
+        Que alegria ter você na equipe TransCare! Antes de começar, vamos precisar de algumas informações básicas.
+      </p>
+    </div>
+
+    <form class="flex flex-col gap-4">
+
+      <div>
+        <input
+          type="text"
+          placeholder="Nome Completo"
+          class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
+        >
+      </div>
+
+      <div>
+        <input
+          type="text"
+          placeholder="Nome Social"
+          class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
+        >
+      </div>
+
+      <div>
+        <input
+          type="text"
+          placeholder="Pronomes"
+          class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
+        >
+      </div>
+
+      <div>
+        <input
+          type="text"
+          placeholder="Data de Nascimento"
+          onfocus="(this.type='date')"
+          onblur="(this.type='text')"
+          class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
+        >
+      </div>
+
+      <div>
+        <input
+          type="text"
+          placeholder="Identidade de Gênero"
+          class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
+        >
+      </div>
+
+      <div>
+        <input
+          type="email"
+          placeholder="E-mail corporativo"
+          class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
+        >
+      </div>
+
+      <div>
+        <input
+          type="tel"
+          placeholder="Telefone"
+          class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
+        >
+      </div>
+
+      <div>
+        <select class="w-full bg-gray-100 text-gray-500 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 font-medium">
+          <option value="" disabled selected>Modelo de Atendimento</option>
+          <option value="presencial">Presencial</option>
+          <option value="online">Online</option>
+          <option value="hibrido">Híbrido</option>
+        </select>
+      </div>
+
+       <div>
+        <input
+          type="text"
+          placeholder="Endereço do Local de Atendimento"
+          class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
+        >
+      </div>
+
+      <button
+        class="mt-4 w-full bg-sky-400 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-sky-500 transition-colors">
+        Continuar
+      </button>
+
+    </form>
+  </main>
+</div>
