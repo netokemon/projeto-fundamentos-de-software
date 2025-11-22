@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './agendamento.html',
   styleUrl: './agendamento.css',
 })
-export class Agendamento {
+export class AgendamentoComponent {
 
 }

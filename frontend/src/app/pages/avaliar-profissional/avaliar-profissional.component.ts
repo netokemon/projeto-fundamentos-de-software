@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './avaliar-profissional.html',
   styleUrl: './avaliar-profissional.css',
 })
-export class AvaliarProfissional {
+export class AvaliarProfissionalComponent {
 
 }
