@@ -4,17 +4,15 @@ import java.time.LocalDateTime;
 
 import com.usforus.transcare.user.User;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.*;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 
 @Entity
 @Table(name = "diarios")
 public class Diario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false)
     private Integer avaliacao;
