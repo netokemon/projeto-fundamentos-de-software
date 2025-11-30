@@ -10,7 +10,7 @@ import { BuscarProfissionaisComponent } from './pages/buscar-profissionais/busca
 import { FiltrarProfissionaisComponent } from './pages/filtrar-profissionais/filtrar-profissionais.component';
 
 export const routes: Routes = [
-    { path: '', component: WelcomeComponent },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'cadastro', component: CadastroComponent },
     { path: 'agendar', component: AgendamentoComponent },
