@@ -1,16 +1,52 @@
-<h1>{{mensagem}}</h1>
+<div class="min-h-screen bg-white flex items-center justify-center p-4">
 
-<form>
-  <div>
-    <label>Email:</label>
-    <input type="email">
+  <div class="w-full max-w-md bg-white rounded-[2rem] shadow-xl p-8 relative border border-gray-100 flex flex-col items-center">
+
+    <button class="absolute top-6 left-6 p-2 bg-gray-50 rounded-full text-blue-600 hover:bg-gray-100 transition shadow-sm">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+      </svg>
+    </button>
+
+    <h1 class="text-2xl font-bold text-center text-gray-900 mb-8 mt-4">
+      Log In
+    </h1>
+
+    <form class="w-full flex flex-col gap-5">
+
+      <div>
+        <input
+          type="email"
+          placeholder="Email"
+          class="w-full h-12 bg-gray-50 text-gray-900 rounded-xl px-4 border border-gray-200 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-400 font-medium transition"
+        >
+      </div>
+
+      <div class="relative">
+        <input
+          type="password"
+          placeholder="Senha"
+          class="w-full h-12 bg-gray-50 text-gray-900 rounded-xl px-4 pr-20 border border-gray-200 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-400 font-medium transition"
+        >
+        <button type="button" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-blue-600 font-bold text-sm hover:text-blue-800 transition">
+          Mostrar
+        </button>
+      </div>
+
+      <button class="w-full h-12 bg-blue-600 text-white font-bold rounded-xl shadow-md hover:bg-blue-700 transition-all active:scale-[0.98] flex items-center justify-center">
+        Entrar para minha conta
+      </button>
+
+    </form>
+
+    <div class="text-center mt-6 space-y-2">
+      <a href="#" class="block text-sm text-blue-600 font-bold hover:underline transition">
+        Esqueceu a senha?
+      </a>
+      <a href="#" class="block text-sm text-blue-600 font-bold hover:underline transition">
+        Não tem uma conta? Crie agora!
+      </a>
+    </div>
+
   </div>
-
-  <div>
-    <label>Senha:</label>
-    <input type="password">
-  </div>
-
-  <button type="submit">Entrar</button>
-</form>
-
+</div>
