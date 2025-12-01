@@ -1,23 +1,56 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common'; 
 import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router'; 
+import { AuthService } from '../../services/auth.service'; 
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  standalone: true,
+  imports: [FormsModule, CommonModule, RouterLink], 
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent {
 
-  mensagem: string = '';
+  loginData = {
+    email: '',
+    senha: ''
+  };
 
-  constructor(private api: ApiService) {}
+  mostrarSenha = false; 
+  mensagemErro = '';
 
-  ngOnInit(): void {
-    this.api.getMensagem().subscribe(res => {
-      this.mensagem = res;
-    });
+  constructor(
+    private authService: AuthService, 
+    private router: Router
+  ) {}
+
+  toggleSenha() {
+    this.mostrarSenha = !this.mostrarSenha;
   }
 
+  onSubmit() {
+    this.mensagemErro = '';
+
+    if (!this.loginData.email || !this.loginData.senha) {
+      this.mensagemErro = 'Por favor, preencha email e senha.';
+      return;
+    }
+
+    this.authService.login(this.loginData).subscribe({
+      next: (res: any) => {
+        console.log('Login Sucesso:', res);
+        
+
+        localStorage.setItem('token', res.token);
+        
+        this.router.navigate(['/welcome']); 
+      },
+      error: (err) => {
+        console.error('Erro Login:', err);
+        this.mensagemErro = 'Email ou senha incorretos.';
+      }
+    });
+  }
 }

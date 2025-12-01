@@ -1,3 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliação</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Font: Inter (Carregada com pesos 400, 600, 700) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Define a fonte Inter para o corpo do documento */
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Animação para o card (opcional, mas mantém o estilo da animação existente) */
+    @keyframes fadeInSlideUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in-up {
+        animation: fadeInSlideUp 0.8s ease-out forwards;
+    }
+  </style>
+
+  <!-- Configuração Tailwind para usar Inter como fonte sans -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sans"> <!-- Aplica a fonte Inter globalmente -->
+
 <div class="relative min-h-screen w-full overflow-hidden bg-gray-100">
 
   <div class="absolute inset-0 z-0">
@@ -56,3 +105,5 @@
   </div>
 
 </div>
+</body>
+</html>

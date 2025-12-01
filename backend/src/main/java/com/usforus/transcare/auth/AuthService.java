@@ -37,6 +37,12 @@ public class AuthService {
                 request.email(),
                 senhaHashed
         );
+        novoUsuario.setNomeSocial(request.nomeSocial());
+        novoUsuario.setPronomes(request.pronomes());
+        novoUsuario.setDataNascimento(request.dataNascimento());
+        novoUsuario.setIdentidadeGenero(request.identidadeGenero());
+        novoUsuario.setEtapaTransicao(request.etapaTransicao());
+        novoUsuario.setRegiao(request.regiao());
         return userRepository.save(novoUsuario);
     }
 
