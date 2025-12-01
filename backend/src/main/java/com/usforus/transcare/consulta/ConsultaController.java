@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/consultas") // Rota base para consultas
+@CrossOrigin(origins = "*")
 public class ConsultaController {
 
     private final ConsultaService consultaService;

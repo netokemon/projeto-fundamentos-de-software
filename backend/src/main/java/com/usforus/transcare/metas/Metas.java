@@ -2,10 +2,10 @@ package com.usforus.transcare.metas;
 
 import com.usforus.transcare.user.User;
 import jakarta.persistence.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Entity
 @Table(name = "metas")
-
 public class Metas {
 
     @Id

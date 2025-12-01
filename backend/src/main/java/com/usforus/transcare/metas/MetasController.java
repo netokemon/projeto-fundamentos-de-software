@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/metas")
+@CrossOrigin(origins = "*")
 public class MetasController {
 
     private final MetasService metasService;

@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import com.usforus.transcare.user.User;
 
 import jakarta.persistence.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Entity
 @Table(name = "diarios")

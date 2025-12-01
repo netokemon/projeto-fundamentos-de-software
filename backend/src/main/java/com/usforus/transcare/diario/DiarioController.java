@@ -12,6 +12,7 @@ import com.usforus.transcare.consulta.ConsultaResponse;
 
 @RestController
 @RequestMapping("/api/diario")
+@CrossOrigin(origins = "*")
 public class DiarioController {
 
     private final DiarioService diarioService;

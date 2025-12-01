@@ -1,156 +1,116 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agendar Consulta</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Font: Inter (Formato ajustado conforme solicitado) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<div class="min-h-screen bg-gray-50 pb-24 relative font-sans">
+
+    <header class="bg-white p-4 flex items-center shadow-sm sticky top-0 z-10">
+      <button class="p-2 rounded-full hover:bg-gray-100 text-blue-600">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+      <h1 class="flex-1 text-center text-xl font-bold text-gray-900 mr-8">
+        Agendar Consulta
+      </h1>
+    </header>
   
-  <style>
-    /* Define a fonte Inter para o corpo e garante que a página ocupe toda a altura */
-    body {
-        font-family: 'Inter', sans-serif;
-    }
-    
-    /* Garantir que o background da nav e do header seja visível */
-    .bg-gray-50 {
-        /* Para telas maiores que o conteúdo, garantir que o fundo seja claro */
-        min-height: 100vh; 
-    }
-  </style>
-
-  <!-- Configuração Tailwind para usar Inter como fonte sans (MANTIDA) -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-</head>
-<body class="font-sans"> <!-- Aplica a fonte Inter globalmente -->
-
-<div class="min-h-screen bg-gray-50 pb-24 relative">
-
-  <header class="bg-white p-4 flex items-center shadow-sm sticky top-0 z-10">
-    <!-- Botão de Voltar -->
-    <button class="p-2 rounded-full hover:bg-gray-100 text-blue-600">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-      </svg>
-    </button>
-    <!-- Título Centralizado -->
-    <h1 class="flex-1 text-center text-xl font-bold text-gray-900 mr-8">
-      Agendar Consulta
-    </h1>
-  </header>
-
-  <div class="p-6 space-y-6">
-
-    <!-- Seção de Seleção de Modelo de Consulta -->
-    <section class="bg-white rounded-[2rem] p-6 shadow-xl text-center">
-      <h2 class="text-2xl font-extrabold text-gray-900 mb-6 leading-snug">
-        Selecione o modelo <br> de consulta
-      </h2>
-
-      <div class="space-y-4">
-        <!-- Botão Telemedicina -->
-        <button class="w-full bg-blue-600 text-white font-bold text-lg py-4 rounded-3xl shadow-lg hover:bg-blue-700 transition duration-150 ease-in-out active:scale-[.98]">
-          Telemedicina
-        </button>
-
-        <!-- Botão Consulta Presencial -->
-        <button class="w-full bg-blue-600 text-white font-bold text-lg py-4 rounded-3xl shadow-lg hover:bg-blue-700 transition duration-150 ease-in-out active:scale-[.98]">
-          Consulta Presencial
-        </button>
-      </div>
-
-      <!-- Link de Ajuda -->
-      <p class="mt-6 text-sm text-blue-600 font-medium cursor-pointer hover:text-blue-700 transition">
-        Quer entender mais sobre o que é <br>
-        "Telemedicina"? Clique aqui :)
-      </p>
-    </section>
-
-    <!-- Seção Mapa Parceiros -->
-    <section class="bg-white rounded-[2rem] p-6 shadow-xl text-center">
-      <h2 class="text-2xl font-extrabold text-gray-900 mb-3">
-        Mapa parceiros
-      </h2>
-      <p class="text-gray-500 text-base mb-6 leading-snug">
-        Precisa de atendimento agora? Localize postos SUS, clínicas inclusivas, especialistas em saúde trans e redes de apoio próximas de você com apenas um toque.
-      </p>
-
-      <!-- Placeholder do Mapa -->
-      <div class="rounded-3xl overflow-hidden shadow-2xl border-0 h-40 w-full bg-blue-50 relative group cursor-pointer transform hover:scale-[1.01] transition duration-300 ease-in-out">
-        <img
-          src="https://placehold.co/800x400/3b82f6/ffffff?text=Mapa+de+Parceiros"
-          alt="Mapa de parceiros"
-          onerror="this.onerror=null;this.src='https://placehold.co/800x400/3b82f6/ffffff?text=Mapa+de+Parceiros';"
-          class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-300"
-        >
-        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-10 group-hover:bg-opacity-0 transition duration-300">
-           <span class="bg-blue-600 text-white p-3 rounded-full shadow-xl transform group-hover:scale-110 transition duration-300">
-             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7">
-               <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-               <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-             </svg>
-           </span>
+    <div class="p-6 space-y-6">
+  
+      <section class="bg-white rounded-[2rem] p-6 shadow-xl text-center">
+        <h2 class="text-2xl font-extrabold text-gray-900 mb-6 leading-snug">
+          Selecione o modelo <br> de consulta
+        </h2>
+  
+        <div class="space-y-4">
+          <button 
+            (click)="abrirModal('TELEMEDICINA')"
+            class="w-full bg-blue-600 text-white font-bold text-lg py-4 rounded-3xl shadow-lg hover:bg-blue-700 transition duration-150 ease-in-out active:scale-[.98]">
+            Telemedicina
+          </button>
+  
+          <button 
+            (click)="abrirModal('PRESENCIAL')"
+            class="w-full bg-blue-600 text-white font-bold text-lg py-4 rounded-3xl shadow-lg hover:bg-blue-700 transition duration-150 ease-in-out active:scale-[.98]">
+            Consulta Presencial
+          </button>
         </div>
-      </div>
-    </section>
-
-  </div>
-
-  <!-- Barra de Navegação Flutuante (Bottom Navigation Bar) -->
-  <nav class="fixed bottom-0 left-0 right-0 p-4 pt-10 flex justify-center pointer-events-none z-50">
-    <div class="bg-white rounded-full shadow-2xl py-3 px-6 flex justify-around items-center w-full max-w-md pointer-events-auto transform translate-y-[-1rem] transition-all duration-300">
-
-      <!-- Home -->
-      <button class="text-gray-400 hover:text-blue-600 p-2 rounded-full transition duration-150">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-        </svg>
-      </button>
-
-      <!-- Central Action Button (Schedule) -->
-      <button class="bg-blue-600 text-white p-4 rounded-full shadow-xl border-6 border-white/0 transform scale-110 -translate-y-2 hover:bg-blue-700 transition duration-200 ease-in-out">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /> 
-        </svg>
-      </button>
-
-      <!-- Calendar -->
-      <button class="text-gray-400 hover:text-blue-600 p-2 rounded-full transition duration-150">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-        </svg>
-      </button>
-
-      <!-- Community/Social -->
-      <button class="text-gray-400 hover:text-blue-600 p-2 rounded-full transition duration-150">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-        </svg>
-      </button>
-
-      <!-- AI/Assistência -->
-      <button class="text-gray-400 hover:text-blue-600 p-2 rounded-full transition duration-150">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 018.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.42 24.42 0 010 3.46" />
-        </svg>
-      </button>
-
+  
+        <p class="mt-6 text-sm text-blue-600 font-medium cursor-pointer hover:text-blue-700 transition">
+          Quer entender mais sobre o que é <br>
+          "Telemedicina"? Clique aqui :)
+        </p>
+      </section>
+  
+      <section class="bg-white rounded-[2rem] p-6 shadow-xl text-center">
+        <h2 class="text-2xl font-extrabold text-gray-900 mb-3">
+          Mapa parceiros
+        </h2>
+        <p class="text-gray-500 text-base mb-6 leading-snug">
+          Precisa de atendimento agora? Localize postos SUS, clínicas inclusivas...
+        </p>
+  
+        <div class="rounded-3xl overflow-hidden shadow-2xl border-0 h-40 w-full bg-blue-50 relative group cursor-pointer transform hover:scale-[1.01] transition duration-300 ease-in-out">
+            <div class="w-full h-full bg-blue-200 flex items-center justify-center text-blue-800 font-bold">
+                MAPA AQUI
+            </div>
+        </div>
+      </section>
+  
     </div>
-  </nav>
-
-</div>
-</body>
-</html>
+  
+    <nav class="fixed bottom-0 left-0 right-0 p-4 pt-10 flex justify-center pointer-events-none z-40">
+      <div class="bg-white rounded-full shadow-2xl py-3 px-6 flex justify-around items-center w-full max-w-md pointer-events-auto transform translate-y-[-1rem] transition-all duration-300">
+        <button class="text-gray-400 p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="bg-blue-600 text-white p-4 rounded-full shadow-xl -translate-y-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="text-gray-400 p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </nav>
+  
+    <div *ngIf="mostrarModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 backdrop-blur-sm transition-opacity">
+        
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md p-6 relative animate-fade-in-up">
+            
+            <button (click)="fecharModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+  
+            <h2 class="text-2xl font-bold text-gray-900 mb-1 text-center">Agendar {{ tipoConsultaSelecionada | titlecase }}</h2>
+            <p class="text-center text-gray-500 mb-6 text-sm">Preencha os dados da consulta</p>
+  
+            <form [formGroup]="agendamentoForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Médico(a)</label>
+                    <input type="text" formControlName="nomeMedico" placeholder="Ex: Dra. Ana" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+  
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Especialização</label>
+                    <select formControlName="especializacao" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="" disabled>Selecione</option>
+                        <option value="CLINICA_GERAL">Clínica Geral</option>
+                        <option value="ENDOCRINOLOGIA">Endocrinologia</option>
+                        <option value="PSICOLOGIA">Psicologia</option>
+                        <option value="PSIQUIATRIA">Psiquiatria</option>
+                        <option value="GINECOLOGIA">Ginecologia</option>
+                        <option value="UROLOGIA">Urologia</option>
+                    </select>
+                </div>
+  
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Data e Hora</label>
+                    <input type="datetime-local" formControlName="dataHora" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+  
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Local</label>
+                    <input type="text" formControlName="local" placeholder="Endereço ou Link" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+  
+                <button type="submit" [disabled]="agendamentoForm.invalid" class="mt-4 w-full bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-blue-700 transition disabled:opacity-50">
+                    Confirmar Agendamento
+                </button>
+            </form>
+        </div>
+    </div>
+  
+  </div>
