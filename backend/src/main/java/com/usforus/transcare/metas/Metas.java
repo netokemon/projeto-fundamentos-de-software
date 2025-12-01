@@ -30,4 +30,12 @@ public class Metas {
     public Long getId() {
         return id;
     }
+
+    public User getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(User paciente) {
+        this.paciente = paciente;
+    }
 }
