@@ -1,1 +1,98 @@
-<p>relato-diario works!</p>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relato Diário</title>
+    <!-- Carrega o Tailwind CSS para estilização rápida -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Define a fonte Inter (padrão) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Cor de fundo suave */
+        }
+        .nav-icon {
+            transition: color 0.15s ease-in-out;
+        }
+        .active-icon {
+            color: #3b88f6; /* Cor azul primária */
+        }
+        /* Ajuste para que a barra de navegação fique acima do conteúdo */
+        .content-area {
+            padding-bottom: 7rem; /* Espaço para a barra inferior flutuante */
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-100">
+
+    <div id="app" class="relative">
+
+        <!-- 1. Cabeçalho Fixo -->
+        <header class="bg-white pt-6 pb-4 shadow-sm sticky top-0 z-20">
+            <div class="flex items-center justify-center relative">
+                <!-- Botão de Voltar (Seta) -->
+                <button onclick="console.log('Botão Voltar Clicado')" class="absolute left-5 p-2 text-gray-600 hover:text-blue-600 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                </button>
+                <h1 class="text-2xl font-bold text-center text-black">
+                    Relato Diário
+                </h1>
+            </div>
+        </header>
+
+        <!-- 2. Conteúdo da Tela (Relato) -->
+        <div class="content-area px-5 mt-6">
+            <div class="bg-white rounded-[2rem] shadow-xl overflow-hidden">
+                
+                <!-- Título Azul do Card -->
+                <div class="bg-blue-600 text-white text-center py-5 px-6 font-bold text-xl rounded-t-[2rem]">
+                    Relato Diário
+                </div>
+
+                <!-- Corpo do Card -->
+                <div class="p-6">
+                    <p class="text-sm font-bold text-gray-800 mb-3">Humor do dia: Feliz e Sensível</p>
+                    <p class="text-xs text-gray-600 leading-relaxed text-justify">
+                        Hoje foi um dia de contrastes! Acordei me sentindo feliz e energizada, mas também mais sensível que o normal. Percebi que meu corpo está respondendo às mudanças hormonais: senti mais calor mesmo sem estar tão quente, e aquela dorzinha chata nas costas apareceu de novo. Fiquei atenta, mas sem preocupação excessiva. No geral, foi um dia produtivo, mesmo com essa sensibilidade à flor da pele. Amanhã pretendo alongar mais e beber água extra!
+                    </p>
+                    <p class="text-[11px] text-gray-400 mt-4 italic">
+                        Este é um espaço para o seu diário.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 3. Barra de Navegação Flutuante (Bottom Nav) -->
+        <nav class="fixed bottom-6 left-4 right-4 bg-white rounded-full shadow-2xl py-3 px-6 flex justify-between items-center z-50">
+            
+            <!-- Ícone Home -->
+            <button class="w-1/5 flex justify-center nav-icon active-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            </button>
+            
+            <!-- Ícone Calendário -->
+            <button class="w-1/5 flex justify-center nav-icon text-gray-400 hover:text-blue-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </button>
+            
+            <!-- Botão Central (Relato/Adicionar) -->
+            <button class="bg-blue-600 text-white p-4 rounded-full -mt-8 border-4 border-white shadow-2xl hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+
+            <!-- Ícone Pessoas -->
+            <button class="w-1/5 flex justify-center nav-icon text-gray-400 hover:text-blue-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </button>
+            
+            <!-- Ícone Sol/Relato -->
+            <button class="w-1/5 flex justify-center nav-icon text-gray-400 hover:text-blue-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            </button>
+        </nav>
+    </div>
+
+</body>
+</html>
