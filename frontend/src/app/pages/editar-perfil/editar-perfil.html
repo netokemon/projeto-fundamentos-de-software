@@ -1,1 +1,212 @@
-<p>editar-perfil works!</p>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Aplica a fonte Inter globalmente, conforme solicitado */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            background-color: #f7f7f7; /* Fundo levemente cinza para destacar o formulário */
+            min-height: 100vh;
+        }
+
+        /* Estilo para a foto de perfil em círculo */
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        /* Estilo para a foto real (simulada) */
+        .profile-pic-image {
+            background-image: url("https://placehold.co/150x150/50b284/ffffff?text=Katia");
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Estilo para o cabeçalho fixo no topo */
+        .header-shadow {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo para os campos de entrada */
+        .input-field {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border-radius: 0.75rem; /* rounded-xl */
+            border: 1px solid #d1d5db; /* border-gray-300 */
+            font-size: 1rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        .input-field:focus {
+            border-color: #3b82f6; /* blue-500 */
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+        }
+    </style>
+
+    <!-- Configuração Tailwind para usar Inter como fonte sans (Conforme solicitado) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+<!-- Estrutura principal da página de edição -->
+<div class="w-full bg-gray-100 overflow-hidden min-h-screen pb-32">
+    <!-- O pb-32 garante espaço para o botão flutuante inferior -->
+
+    <!-- CABEÇALHO FIXO BRANCO -->
+    <header class="sticky top-0 z-20 bg-white pt-6 pb-4 px-4 flex items-center header-shadow">
+        <!-- Botão de Voltar -->
+        <button onclick="console.log('Voltar para Perfil');" class="p-2 rounded-full hover:bg-gray-100 text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+        </button>
+        <!-- Título -->
+        <h1 class="flex-1 text-center text-xl font-extrabold text-black mr-10">
+            Editar Perfil
+        </h1>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL (FORMULÁRIO) -->
+    <main class="p-4">
+
+        <!-- Seção de Edição da Foto -->
+        <div class="flex flex-col items-center justify-center my-6 bg-white p-6 rounded-2xl shadow-md">
+            <!-- Foto de Perfil -->
+            <div class="profile-pic profile-pic-image"></div>
+            <!-- Botão para Mudar Foto -->
+            <button class="mt-4 text-blue-600 font-semibold text-base hover:text-blue-800 transition">
+                Alterar Foto
+            </button>
+        </div>
+
+        <!-- Formulário de Edição -->
+        <form class="space-y-8">
+            
+            <!-- SEÇÃO 1: INFORMAÇÕES PESSOAIS -->
+            <div class="bg-white p-6 rounded-xl shadow-md space-y-4">
+                <h2 class="text-xl font-bold text-gray-900 border-b pb-2 mb-4">Informações Pessoais</h2>
+                
+                <label class="block">
+                    <span class="text-gray-700 font-medium text-sm">Nome</span>
+                    <input type="text" value="Katia Amaral" placeholder="Seu nome completo" class="input-field mt-1" required>
+                </label>
+
+                <label class="block">
+                    <span class="text-gray-700 font-medium text-sm">Pronome</span>
+                    <input type="text" value="Ela/Dela" placeholder="Ex: ele/dele, ela/dela" class="input-field mt-1">
+                </label>
+                
+                <label class="block">
+                    <span class="text-gray-700 font-medium text-sm">Email</span>
+                    <input type="email" value="katiaamaral@email.com" placeholder="Seu e-mail" class="input-field mt-1" required>
+                </label>
+                
+                <label class="block">
+                    <span class="text-gray-700 font-medium text-sm">Número</span>
+                    <input type="tel" value="(81) 90000000" placeholder="(XX) XXXXX-XXXX" class="input-field mt-1">
+                </label>
+                
+                <label class="block">
+                    <span class="text-gray-700 font-medium text-sm">Data de Nascimento</span>
+                    <input type="date" value="1981-07-20" class="input-field mt-1" required>
+                </label>
+
+                <label class="block">
+                    <span class="text-gray-700 font-medium text-sm">Identidade de Gênero</span>
+                    <input type="text" value="Mulher Trans" placeholder="Sua identidade de gênero" class="input-field mt-1" required>
+                </label>
+
+                <label class="block">
+                    <span class="text-gray-700 font-medium text-sm">Tempo de Transição</span>
+                    <input type="text" value="Em transição há 17 anos" placeholder="Ex: 5 anos, começando agora" class="input-field mt-1">
+                </label>
+
+                <label class="block">
+                    <span class="text-gray-700 font-medium text-sm">Localização</span>
+                    <input type="text" value="Recife/PE" placeholder="Cidade/Estado" class="input-field mt-1" required>
+                </label>
+            </div>
+
+            <!-- SEÇÃO 2: INFORMAÇÕES MÉDICAS -->
+            <div class="bg-white p-6 rounded-xl shadow-md space-y-4">
+                <h2 class="text-xl font-bold text-gray-900 border-b pb-2 mb-4">Informações Médicas</h2>
+                
+                <label class="block">
+                    <span class="text-gray-700 font-medium text-sm">Tipo Sanguíneo</span>
+                    <input type="text" value="O+" placeholder="Ex: A+, O-" class="input-field mt-1">
+                </label>
+
+                <label class="block">
+                    <span class="text-gray-700 font-medium text-sm">Alergias</span>
+                    <input type="text" value="Penicilina; Dipirona" placeholder="Lista de alergias separadas por vírgula" class="input-field mt-1">
+                </label>
+                
+                <label class="block">
+                    <span class="text-gray-700 font-medium text-sm">Condições Crônicas</span>
+                    <input type="text" value="Diabetes" placeholder="Lista de condições separadas por vírgula" class="input-field mt-1">
+                </label>
+
+                <label class="block">
+                    <span class="text-gray-700 font-medium text-sm">Tipo de THI (Terapia Hormonal)</span>
+                    <input type="text" value="Estradiol" placeholder="Tipo de hormônio" class="input-field mt-1">
+                </label>
+                
+                <label class="block">
+                    <span class="text-gray-700 font-medium text-sm">Data de Início da THI</span>
+                    <input type="date" value="2008-03-15" class="input-field mt-1">
+                </label>
+            </div>
+
+            <!-- SEÇÃO 3: CIRURGIAS E PROCEDIMENTOS -->
+            <div class="bg-white p-6 rounded-xl shadow-md space-y-4">
+                <h2 class="text-xl font-bold text-gray-900 border-b pb-2 mb-4">Cirurgias e Procedimentos</h2>
+                
+                <label class="block">
+                    <span class="text-gray-700 font-medium text-sm">Realizados</span>
+                    <textarea rows="2" placeholder="Ex: Silicone (2010), Orquiectomia (2015)" class="input-field mt-1">Silicone (2010)</textarea>
+                </label>
+                
+                <label class="block">
+                    <span class="text-gray-700 font-medium text-sm">Planejados</span>
+                    <textarea rows="2" placeholder="Ex: Vaginoplastia, Prótese de Mama" class="input-field mt-1">Vaginoplastia</textarea>
+                </label>
+            </div>
+
+        </form>
+    </main>
+
+    <!-- BOTÃO FLUTUANTE INFERIOR PARA SALVAR -->
+    <div class="fixed bottom-0 left-0 right-0 w-full p-4 z-40 bg-white border-t border-gray-100 shadow-xl">
+        <button type="submit" onclick="console.log('Perfil Salvo');" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-blue-700 transition">
+            Salvar Alterações
+        </button>
+    </div>
+</div>
+
+</body>
+</html>
