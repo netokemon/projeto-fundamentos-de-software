@@ -8,6 +8,9 @@ import { AvaliarProfissionalComponent } from './pages/avaliar-profissional/avali
 import { EditarPerfilComponent } from './pages/editar-perfil/editar-perfil.component';
 import { BuscarProfissionaisComponent } from './pages/buscar-profissionais/buscar-profissionais.component';
 import { FiltrarProfissionaisComponent } from './pages/filtrar-profissionais/filtrar-profissionais.component';
+import { DiarioHumorComponent } from './pages/diario-humor/diario-humor.component';
+import { DefinirMetasComponent } from './pages/definir-metas/definir-metas.component';
+import { ProgressoMetasComponent } from './pages/progresso-metas/progresso-metas.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -19,4 +22,7 @@ export const routes: Routes = [
     { path: 'perfil/editar', component: EditarPerfilComponent },
     { path: 'buscar', component: BuscarProfissionaisComponent },
     { path: 'filtros', component: FiltrarProfissionaisComponent },
+    { path: 'diario', component: DiarioHumorComponent },
+    { path: 'metas/criar', component: DefinirMetasComponent },
+    { path: 'metas/progresso', component: ProgressoMetasComponent },
 ];
