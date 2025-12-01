@@ -1,3 +1,5 @@
+
+
 <div class="min-h-screen bg-gray-50 pb-24 relative font-sans">
 
     <header class="bg-white p-4 flex items-center shadow-sm sticky top-0 z-10">
@@ -46,26 +48,60 @@
           Precisa de atendimento agora? Localize postos SUS, clínicas inclusivas...
         </p>
   
-        <div class="rounded-3xl overflow-hidden shadow-2xl border-0 h-40 w-full bg-blue-50 relative group cursor-pointer transform hover:scale-[1.01] transition duration-300 ease-in-out">
+        <div (click)="abrirMapa()" class="rounded-3xl overflow-hidden shadow-2xl border-0 h-40 w-full bg-blue-50 relative group cursor-pointer transform hover:scale-[1.01] transition duration-300 ease-in-out">
             <div class="w-full h-full bg-blue-200 flex items-center justify-center text-blue-800 font-bold">
                 MAPA AQUI
             </div>
         </div>
+
+        <div *ngIf="mostrarMapa" class="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black bg-opacity-70 backdrop-blur-sm transition-opacity">
+    
+    <div class="bg-white rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden relative animate-fade-in-up h-[90vh] flex flex-col">
+        
+        <div class="p-4 border-b border-gray-100 flex justify-between items-center bg-white z-10">
+            <h2 class="text-lg font-bold text-gray-800">Parceiros Próximos</h2>
+            <button (click)="fecharMapa()" class="text-gray-400 hover:text-gray-600 bg-gray-100 p-2 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="flex-1 bg-gray-200 relative">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15801.599721739262!2d-34.89866760032514!3d-8.06129737920392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1ssaude%20trans%20recife!5e0!3m2!1spt-BR!2sbr!4v1701389283921!5m2!1spt-BR!2sbr" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            
+            <button class="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg text-blue-600 hover:bg-blue-50">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+
+    </div>
+</div>
       </section>
   
     </div>
   
     <nav class="fixed bottom-6 left-4 right-4 bg-white rounded-full shadow-2xl py-3 px-6 flex justify-between items-center z-50">
     
-    <button class="text-gray-400 hover:text-blue-600 transition duration-150 ease-in-out">
+    <button (click)="voltarHome()" class="text-gray-400 hover:text-blue-600 transition duration-150 ease-in-out">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
     </button>
     
-    <button class="bg-blue-600 text-white p-4 rounded-full -mt-8 border-0 border-white shadow-2xl hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition duration-300">
+    <button (click)="criarMetas()" class="bg-blue-600 text-white p-4 rounded-full -mt-8 border-0 border-white shadow-2xl hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition duration-300">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
     </button>
 
-    <button class="text-gray-400 hover:text-blue-600 transition duration-150 ease-in-out">
+    <button (click)="voltarMetas()" class="text-gray-400 hover:text-blue-600 transition duration-150 ease-in-out">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
     </button>
     

@@ -13,6 +13,9 @@ import { Router } from '@angular/router';
 })
 export class AgendamentoComponent {
 
+  mostrarModalMapa = false; 
+  mostrarMapa = false;
+
   mostrarModal = false;
   agendamentoForm: FormGroup;
   tipoConsultaSelecionada: string = '';
@@ -28,6 +31,14 @@ export class AgendamentoComponent {
       especializacao: ['', Validators.required],
       dataHora: ['', Validators.required]
     });
+  }
+
+  abrirMapa() {
+    this.mostrarMapa = true;
+  }
+
+  fecharMapa() {
+    this.mostrarMapa = false;
   }
 
   // Abre o modal e já configura o local dependendo do botão clicado
@@ -91,5 +102,13 @@ export class AgendamentoComponent {
 
   voltarHome() {
     this.router.navigate(['/']); 
+  }
+
+  voltarMetas(){
+    this.router.navigate(['/metas/progresso'])
+  }
+
+  criarMetas(){
+    this.router.navigate(['/metas/criar'])
   }
 }

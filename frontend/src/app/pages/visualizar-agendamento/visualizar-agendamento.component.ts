@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Necessário para *ngFor e Pipes de Data
 import { ConsultaService } from '../../services/consulta.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-visualizar-agendamento',
@@ -14,7 +15,7 @@ export class VisualizarAgendamentoComponent implements OnInit {
   consultas: any[] = [];
   carregando = true;
 
-  constructor(private consultaService: ConsultaService) {}
+  constructor(private consultaService: ConsultaService, private router: Router) {}
 
   ngOnInit(): void {
     this.buscarConsultas();
@@ -33,4 +34,13 @@ export class VisualizarAgendamentoComponent implements OnInit {
       }
     });
   }
+
+  voltarHome() {
+    this.router.navigate(['/']); 
+  }
+
+  voltarAgendar(){
+    this.router.navigate(['/agendar']);
+  }
+
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,7 +12,12 @@ export class MetasService {
   constructor(private http: HttpClient) { }
 
   criarMeta(nome: string): Observable<any> {
-    return this.http.post(this.apiUrl, { nome });
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.post(this.apiUrl, { nome }, { headers });
+    
   }
 
   getMinhasMetas(): Observable<any[]> {

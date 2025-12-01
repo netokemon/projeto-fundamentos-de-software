@@ -20,14 +20,14 @@ public class NotificationScheduler {
         this.emailService = emailService;
     }
 
-    @Scheduled(cron = "0 0 * * * *")
+    @Scheduled(fixedRate = 20000)
     @Transactional
     public void checarConsultasProximas() {
         System.out.println("🔎 Verificando consultas...");
 
         LocalDateTime agora = LocalDateTime.now();
-        LocalDateTime inicioJanela = agora.plusHours(23);
-        LocalDateTime fimJanela = agora.plusHours(25);
+        LocalDateTime inicioJanela = agora;
+        LocalDateTime fimJanela = agora.plusHours(48);
 
         List<Consulta> consultasParaAvisar = consultaRepository
                 .findByDataHoraBetweenAndNotificacaoEnviadaFalse(inicioJanela, fimJanela);

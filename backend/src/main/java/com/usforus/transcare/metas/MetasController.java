@@ -22,13 +22,22 @@ public class MetasController {
         this.metasService = metasService;
     }
 
-    @PostMapping
-    public ResponseEntity<MetasResponse> criarMetas(@RequestBody MetasRequest metasRequest, @AuthenticationPrincipal UserDetails userDetails){
-        String userEmail = userDetails.getUsername();
-        MetasResponse response = metasService.createMetas(metasRequest, userEmail);
-        return ResponseEntity.ok(response);
+//    @PostMapping
+//    public ResponseEntity<MetasResponse> criarMetas(@RequestBody MetasRequest metasRequest, @AuthenticationPrincipal UserDetails userDetails){
+//        String userEmail = userDetails.getUsername();
+//        MetasResponse response = metasService.createMetas(metasRequest, userEmail);
+//        return ResponseEntity.ok(response);
+//
+//    }
+@PostMapping
+public ResponseEntity<MetasResponse> criarMetas(@RequestBody MetasRequest metasRequest, @AuthenticationPrincipal UserDetails userDetails) {
+    // ADICIONE ISSO PARA DEBUGAR
+    System.out.println(">>> CHEGOU NO CONTROLLER. User: " + (userDetails != null ? userDetails.getUsername() : "NULL"));
 
-    }
+    String userEmail = userDetails.getUsername();
+    MetasResponse response = metasService.createMetas(metasRequest, userEmail);
+    return ResponseEntity.ok(response);
+}
 
     @GetMapping("/minhas")
     public ResponseEntity<List<MetasResponse>> getMetas(@AuthenticationPrincipal UserDetails userDetails){

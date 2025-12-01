@@ -34,6 +34,6 @@ export class ProgressoMetasComponent implements OnInit {
   }
   
   voltarHome() {
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
   }
 }
