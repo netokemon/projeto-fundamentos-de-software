@@ -1,1 +1,143 @@
-<p>definir-metas works!</p>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Definição de Metas de Autocuidado</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Aplica a fonte Inter globalmente */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Gradiente de fundo vibrante (mantido do modelo original) */
+        .vibrant-background {
+            /* GRADIENTE INVERTIDO: Começa no azul e vai para o laranja/vermelho */
+            background-image: linear-gradient(135deg, #1e90ff 0%, #007bff 40%, #ff5233 80%, #ff8c00 100%);
+            min-height: 100vh;
+        }
+
+        /* Estilo para o campo de input */
+        .goal-input {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Linha fina de sublinhado */
+            padding: 4px 0;
+            transition: border-bottom-color 0.3s;
+        }
+
+        .goal-input:focus {
+            border-bottom: 2px solid #3b82f6; /* Azul do Tailwind para foco */
+            outline: none;
+        }
+
+    </style>
+
+    <!-- Configuração Tailwind para usar Inter como fonte sans -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="vibrant-background">
+
+<div class="flex flex-col items-center justify-start pt-20 pb-8 min-h-screen relative">
+    
+    <!-- TÍTULO PRINCIPAL (Centralizado e ajustado para o novo topo) -->
+    <h1 class="text-3xl font-bold text-white text-center mb-16 leading-snug tracking-tight shadow-text">
+        Defina as suas metas <br> de autocuidado :)
+    </h1>
+    
+    <!-- CARD PRINCIPAL DE METAS -->
+    <div class="relative w-[90%] max-w-sm sm:max-w-md bg-white rounded-[3rem] p-8 pb-10 shadow-2xl">
+
+        <div class="space-y-8">
+            <!-- Loop para as Metas 1 a 6 (apenas número e input) -->
+            <div id="goals-list" class="space-y-6">
+                
+                <!-- Meta 1 -->
+                <div class="flex items-center space-x-4">
+                    <!-- Número (Lateral Esquerda) -->
+                    <div class="flex-shrink-0 w-8">
+                        <span class="text-2xl font-black text-gray-700">1.</span>
+                    </div>
+                    <!-- Campo de Input -->
+                    <input type="text" placeholder="Insira sua meta" class="goal-input w-full text-base text-gray-700" id="meta1">
+                </div>
+
+                <!-- Meta 2 -->
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0 w-8">
+                        <span class="text-2xl font-black text-gray-700">2.</span>
+                    </div>
+                    <input type="text" placeholder="Insira sua meta" class="goal-input w-full text-base text-gray-700" id="meta2">
+                </div>
+
+                <!-- Meta 3 -->
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0 w-8">
+                        <span class="text-2xl font-black text-gray-700">3.</span>
+                    </div>
+                    <input type="text" placeholder="Insira sua meta" class="goal-input w-full text-base text-gray-700" id="meta3">
+                </div>
+
+                <!-- Meta 4 -->
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0 w-8">
+                        <span class="text-2xl font-black text-gray-700">4.</span>
+                    </div>
+                    <input type="text" placeholder="Insira sua meta" class="goal-input w-full text-base text-gray-700" id="meta4">
+                </div>
+
+                <!-- Meta 5 -->
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0 w-8">
+                        <span class="text-2xl font-black text-gray-700">5.</span>
+                    </div>
+                    <input type="text" placeholder="Insira sua meta" class="goal-input w-full text-base text-gray-700" id="meta5">
+                </div>
+
+                <!-- Meta 6 -->
+                <div class="flex items-center space-x-4">
+                    <div class="flex-shrink-0 w-8">
+                        <span class="text-2xl font-black text-gray-700">6.</span>
+                    </div>
+                    <input type="text" placeholder="Insira sua meta" class="goal-input w-full text-base text-gray-700" id="meta6">
+                </div>
+
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <!-- BOTÃO INFERIOR -->
+    <button class="w-[90%] max-w-sm sm:max-w-md bg-white text-blue-600 font-bold py-4 rounded-xl mt-8 shadow-lg hover:bg-gray-100 transition">
+        Salvar Metas
+    </button>
+</div>
+
+<!-- JavaScript para um efeito de sombra no título (opcional) -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Apenas um pequeno efeito para melhorar o visual do título no fundo gradiente
+        const title = document.querySelector('h1');
+        if (title) {
+            title.style.textShadow = '1px 1px 3px rgba(0,0,0,0.5)';
+        }
+    });
+</script>
+
+</body>
+</html>
