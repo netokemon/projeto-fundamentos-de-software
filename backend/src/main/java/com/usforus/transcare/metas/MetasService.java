@@ -30,8 +30,9 @@ public class MetasService {
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
 
         Metas metas = new Metas();
-
         metas.setNome(metasRequest.nome());
+
+        metas.setPaciente(paciente);
 
         Metas metasSalvas = metasRepository.save(metas);
 
