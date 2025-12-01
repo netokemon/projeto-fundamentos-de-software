@@ -29,6 +29,14 @@ public class Consulta {
     @JoinColumn(name = "user_id", nullable = false)
     private User paciente;
 
+    @Column(nullable = false)
+    private boolean notificacaoEnviada = false; // Padrão é falso
+
+    public boolean isNotificacaoEnviada() {
+        return notificacaoEnviada;
+    }
+
+
     public Consulta() {
     }
 
@@ -74,5 +82,9 @@ public class Consulta {
 
     public void setDataHora(LocalDateTime dataHora) {
         this.dataHora = dataHora;
+    }
+
+    public void setNotificacaoEnviada(boolean notificacaoEnviada) {
+        this.notificacaoEnviada = notificacaoEnviada;
     }
 }
