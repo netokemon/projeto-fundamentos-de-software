@@ -88,4 +88,8 @@ export class AgendamentoComponent {
       }
     });
   }
+
+  voltarHome() {
+    this.router.navigate(['/']); 
+  }
 }
