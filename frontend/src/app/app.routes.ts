@@ -11,9 +11,10 @@ import { FiltrarProfissionaisComponent } from './pages/filtrar-profissionais/fil
 import { DiarioHumorComponent } from './pages/diario-humor/diario-humor.component';
 import { DefinirMetasComponent } from './pages/definir-metas/definir-metas.component';
 import { ProgressoMetasComponent } from './pages/progresso-metas/progresso-metas.component';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'cadastro', component: CadastroComponent },
     { path: 'agendar', component: AgendamentoComponent },
@@ -23,6 +24,8 @@ export const routes: Routes = [
     { path: 'buscar', component: BuscarProfissionaisComponent },
     { path: 'filtros', component: FiltrarProfissionaisComponent },
     { path: 'diario', component: DiarioHumorComponent },
+    { path: 'home', component: HomeComponent },
     { path: 'metas/criar', component: DefinirMetasComponent },
     { path: 'metas/progresso', component: ProgressoMetasComponent },
+    { path: '**', redirectTo: '' }
 ];

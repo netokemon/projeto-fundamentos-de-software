@@ -1,0 +1,120 @@
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-white font-sans text-gray-800">
+
+    <nav class="flex items-center justify-between px-6 py-4 max-w-6xl mx-auto">
+        <div class="flex items-center gap-2">
+            <div class="bg-blue-600 text-white p-2 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                </svg>
+            </div>
+            <span class="text-xl font-bold tracking-tight text-blue-900">TransCare</span>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a routerLink="/login" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition">
+                Entrar
+            </a>
+            <a routerLink="/cadastro" class="hidden sm:block bg-blue-600 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-blue-700 transition shadow-lg shadow-blue-200">
+                Criar Conta
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-12 pb-20 md:pt-20 md:pb-28 grid md:grid-cols-2 gap-12 items-center">
+        
+        <div class="space-y-6 text-center md:text-left">
+            <div class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+                Saúde Inclusiva
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-gray-900">
+                Cuidado que respeita <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">quem você é.</span>
+            </h1>
+            
+            <p class="text-lg text-gray-600 leading-relaxed">
+                Conectamos você a profissionais de saúde preparados, acolhedores e especialistas em cuidados para pessoas trans. Agende consultas sem medo e sem burocracia.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
+                <a routerLink="/cadastro" class="bg-blue-600 text-white text-center font-bold px-8 py-4 rounded-xl shadow-xl shadow-blue-200 hover:bg-blue-700 hover:-translate-y-1 transition transform">
+                    Começar Agora
+                </a>
+                <a routerLink="/login" class="bg-white text-blue-600 text-center font-bold px-8 py-4 rounded-xl border border-gray-200 hover:bg-gray-50 hover:border-blue-200 transition">
+                    Já tenho conta
+                </a>
+            </div>
+
+            <div class="pt-8 flex gap-8 justify-center md:justify-start border-t border-gray-100 mt-8">
+                <div>
+                    <p class="text-2xl font-bold text-gray-900">+500</p>
+                    <p class="text-xs text-gray-500 uppercase font-semibold">Especialistas</p>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-gray-900">24h</p>
+                    <p class="text-xs text-gray-500 uppercase font-semibold">Suporte</p>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-gray-900">100%</p>
+                    <p class="text-xs text-gray-500 uppercase font-semibold">Seguro</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative hidden md:block">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+
+            <img 
+                src="https://placehold.co/600x600/3b82f6/ffffff?text=Saude+Trans" 
+                alt="App TransCare" 
+                class="relative rounded-3xl shadow-2xl border-4 border-white transform rotate-2 hover:rotate-0 transition duration-500"
+            >
+        </div>
+    </main>
+
+    <section class="bg-white py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900">Por que usar o TransCare?</h2>
+                <p class="text-gray-500 mt-2">Criado pela comunidade, para a comunidade.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl bg-gray-50 hover:bg-blue-50 transition border border-gray-100 hover:border-blue-100">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Agendamento Fácil</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Marque consultas presenciais ou telemedicina em segundos, com lembretes automáticos.</p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-gray-50 hover:bg-blue-50 transition border border-gray-100 hover:border-blue-100">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Diário de Emoções</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Acompanhe sua jornada, humor e progresso da transição em um espaço seguro e privado.</p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-gray-50 hover:bg-blue-50 transition border border-gray-100 hover:border-blue-100">
+                    <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Rede de Apoio</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Conecte-se com clínicas parceiras, SUS e especialistas endócrinos recomendados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-50 border-t border-gray-200 py-12">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-gray-500 text-sm">© 2025 TransCare. Todos os direitos reservados.</p>
+            <div class="flex gap-6">
+                <a href="#" class="text-gray-400 hover:text-blue-600 transition">Privacidade</a>
+                <a href="#" class="text-gray-400 hover:text-blue-600 transition">Termos</a>
+                <a href="#" class="text-gray-400 hover:text-blue-600 transition">Ajuda</a>
+            </div>
+        </div>
+    </footer>
+</div>
