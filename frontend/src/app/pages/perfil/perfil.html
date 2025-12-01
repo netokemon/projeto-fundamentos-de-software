@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal</title>
+    <title>Meu Perfil</title>
     <!-- Carrega o Tailwind CSS para estilização rápida -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -23,130 +23,177 @@
         .content-area {
             padding-bottom: 7rem; /* Espaço para a barra inferior flutuante */
         }
-        /* Estilo para a barra de rolagem horizontal da seção de Trend Topics */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
+        
+        /* Estilo para a seção do cabeçalho do perfil com o gradiente */
+        .profile-header {
+            background: linear-gradient(135deg, #0f4c81, #1e90ff, #ff6b6b, #ffda79);
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
+            border-bottom-left-radius: 4rem; /* Curva suave na parte inferior */
+            border-bottom-right-radius: 4rem;
         }
-        .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
+
+        /* Estilo para a imagem de perfil */
+        .profile-img {
+            border: 5px solid white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilo para as linhas de informação */
+        .info-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* Coluna do label 1x, Coluna do valor 2x */
+            gap: 1rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #e5e7eb;
+        }
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
     </style>
 </head>
 <body class="min-h-screen bg-gray-100">
 
     <div id="app" class="relative">
 
-        <!-- 1. Cabeçalho Fixo: Principal e Editar -->
-        <header class="bg-white pt-6 pb-4 shadow-sm sticky top-0 z-20">
-            <div class="flex items-center justify-between px-5 relative">
-                <h1 class="text-3xl font-bold text-center text-black mx-auto">
-                    Principal
+        <!-- 1. Cabeçalho Dinâmico do Perfil (AGORA ENGLOBANDO O NOME E PRONOMES) -->
+        <header class="profile-header pt-6 pb-28 relative shadow-lg"> <!-- Aumentei o pb-24 para pb-28 -->
+            <div class="flex items-center justify-between px-5 relative z-10">
+                <!-- Botão de Voltar (Seta) -->
+                <button onclick="console.log('Botão Voltar Clicado')" class="p-2 text-white bg-white/20 rounded-full hover:bg-white/30 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                </button>
+                <h1 class="text-xl font-bold text-center text-white mr-auto ml-4">
+                    Meu Perfil
                 </h1>
-                <button onclick="console.log('Botão Editar Clicado')" class="text-blue-600 font-semibold text-base hover:text-blue-800 transition">
+                <!-- Espaço para o botão de edição, se necessário -->
+                <button onclick="console.log('Editar Perfil Clicado')" class="text-white font-semibold text-sm opacity-90 hover:opacity-100 transition">
                     Editar
                 </button>
             </div>
+
+            <!-- Imagem e Nome do Perfil (Centrado, AGORA DENTRO DO HEADER) -->
+            <div class="flex flex-col items-center mt-6">
+                <!-- Imagem de Perfil -->
+                <img 
+                    src="https://placehold.co/150x150/ff4d4d/ffffff?text=KA" 
+                    onerror="this.onerror=null;this.src='https://placehold.co/150x150/ff4d4d/ffffff?text=KA';"
+                    alt="Foto de Perfil de Katia Amaral"
+                    class="profile-img w-36 h-36 rounded-full object-cover">
+                
+                <!-- Nome e Pronome (Cor alterada para branco/claro) -->
+                <div class="mt-4 text-center">
+                    <h2 class="text-xl font-bold text-white">Katia Amaral</h2>
+                    <p class="text-sm text-gray-200">(ela/dela)</p>
+                </div>
+            </div>
         </header>
 
-        <!-- 2. Conteúdo da Tela Principal -->
-        <div class="content-area px-5 mt-6 space-y-8">
-
-            <!-- Seção "Para essa semana" (Agenda) -->
-            <div>
-                <h2 class="text-xl font-bold text-gray-800 mb-4">Para essa semana</h2>
+        <!-- 2. Conteúdo da Tela (Informações) -->
+        <div class="content-area px-5 pt-4 pb-8 space-y-10"> <!-- pt-20 alterado para pt-4 -->
+            
+            <!-- 2.1. Informações Pessoais -->
+            <div class="bg-white rounded-[2rem] shadow-xl p-6">
+                <h2 class="text-2xl font-bold text-center text-gray-900 mb-6">Informações Pessoais</h2>
                 
-                <!-- Card de Agendamento 1 -->
-                <div class="bg-white rounded-[2rem] shadow-lg overflow-hidden flex mb-4 transform transition hover:scale-[1.01]">
-                    <div class="bg-blue-600 w-24 flex flex-col items-center justify-center text-white shrink-0 p-4">
-                        <span class="text-3xl font-bold leading-none">29</span>
-                        <span class="text-xl font-bold opacity-80">05</span>
+                <div class="space-y-2 text-sm text-gray-700">
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Nome:</span>
+                        <span class="font-medium text-right">Katia Amaral</span>
                     </div>
-                    <div class="p-4 flex flex-col justify-center w-full">
-                        <p class="font-bold text-gray-900 text-sm">Aplicação de hormônio, 13:00</p>
-                        <p class="text-xs text-gray-500 mt-1 font-semibold">Dr. Carlos Alberto</p>
-                        <p class="text-[11px] text-gray-400 mt-1 leading-tight">Clínica Bem Estar, R. Padre Carapuceiro, 700</p>
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Pronome:</span>
+                        <span class="font-medium text-right">Ela/Dela</span>
                     </div>
-                </div>
-
-                <!-- Card de Agendamento 2 -->
-                <div class="bg-white rounded-[2rem] shadow-lg overflow-hidden flex transform transition hover:scale-[1.01]">
-                    <div class="bg-blue-600 w-24 flex flex-col items-center justify-center text-white shrink-0 p-4">
-                        <span class="text-3xl font-bold leading-none">30</span>
-                        <span class="text-xl font-bold opacity-80">05</span>
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Email:</span>
+                        <span class="font-medium text-right truncate">katiaamaral@email.com</span>
                     </div>
-                    <div class="p-4 flex flex-col justify-center w-full">
-                        <p class="font-bold text-gray-900 text-sm">Treino novo com personal, 08:20</p>
-                        <p class="text-xs text-gray-500 mt-1 font-semibold">Profissional Ana Clara Lima</p>
-                        <p class="text-[11px] text-gray-400 mt-1 leading-tight">Academia Corpo Livre, R. Ten. João Cícero, 638</p>
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Número:</span>
+                        <span class="font-medium text-right">(81) 90000000</span>
                     </div>
-                </div>
-            </div>
-
-            <!-- Seção "Seu diário está te esperando!" (Call to Action) -->
-            <div class="bg-white rounded-[2rem] shadow-lg p-5 flex items-center space-x-4 cursor-pointer hover:bg-gray-50 transition">
-                <!-- Ícone de Sol Vibrante (SVG criado inline) -->
-                <div class="shrink-0">
-                    <svg class="w-12 h-12 text-yellow-500 transform rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </div>
-                <div>
-                    <p class="text-base font-bold text-gray-800">Seu diário está te esperando!</p>
-                    <p class="text-sm text-gray-500">Que tal registrar como você está se sentindo hoje?</p>
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Data de Nascimento:</span>
+                        <span class="font-medium text-right">20/07/1981</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Identidade de Gênero:</span>
+                        <span class="font-medium text-right">Mulher Trans</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Tempo de Transição:</span>
+                        <span class="font-medium text-right">Em transição há 17 anos</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Localização:</span>
+                        <span class="font-medium text-right">Recife/PE</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Seção "Trend Topics #Comunidade" -->
-            <div>
-                <h2 class="text-xl font-bold text-gray-800 mb-4">Trend Topics <span class="text-blue-600 font-semibold">#Comunidade</span></h2>
+            <!-- 2.2. Informações Médicas -->
+            <div class="bg-white rounded-[2rem] shadow-xl p-6">
+                <h2 class="text-2xl font-bold text-center text-gray-900 mb-6">Informações Médicas</h2>
                 
-                <div class="flex space-x-4 overflow-x-scroll no-scrollbar py-2">
-                    
-                    <!-- Trend Topic Card 1 -->
-                    <div class="flex-none w-40 bg-white rounded-xl shadow-md cursor-pointer hover:shadow-lg transition transform hover:scale-[1.02]">
-                        <img src="https://placehold.co/160x90/535C68/FFFFFF?text=Vitaminas" onerror="this.onerror=null;this.src='https://placehold.co/160x90/535C68/FFFFFF?text=Vitaminas';" alt="Pílulas de Vitamina D" class="rounded-t-xl object-cover h-24 w-full">
-                        <div class="p-3">
-                            <p class="text-xs font-semibold text-gray-800 leading-tight line-clamp-2">Pessoas em TH podem precisar de mais Vitamina D...</p>
-                            <span class="text-[10px] text-blue-500 mt-1 block">#VitaminaD</span>
-                        </div>
+                <div class="space-y-2 text-sm text-gray-700">
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Tipo Sanguíneo:</span>
+                        <span class="font-medium text-right">O+</span>
                     </div>
-
-                    <!-- Trend Topic Card 2 -->
-                    <div class="flex-none w-40 bg-white rounded-xl shadow-md cursor-pointer hover:shadow-lg transition transform hover:scale-[1.02]">
-                        <img src="https://placehold.co/160x90/535C68/FFFFFF?text=Hormônios" onerror="this.onerror=null;this.src='https://placehold.co/160x90/535C68/FFFFFF?text=Hormônios';" alt="Cérebro com engrenagens" class="rounded-t-xl object-cover h-24 w-full">
-                        <div class="p-3">
-                            <p class="text-xs font-semibold text-gray-800 leading-tight line-clamp-2">Mudanças hormonais afetam o humor, entenda melhor...</p>
-                            <span class="text-[10px] text-blue-500 mt-1 block">#Transição</span>
-                        </div>
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Alergias:</span>
+                        <span class="font-medium text-right">Penicilina; Dipirona</span>
                     </div>
-
-                    <!-- Trend Topic Card 3 -->
-                    <div class="flex-none w-40 bg-white rounded-xl shadow-md cursor-pointer hover:shadow-lg transition transform hover:scale-[1.02]">
-                        <img src="https://placehold.co/160x90/535C68/FFFFFF?text=Apoio" onerror="this.onerror=null;this.src='https://placehold.co/160x90/535C68/FFFFFF?text=Apoio';" alt="Duas pessoas abraçadas" class="rounded-t-xl object-cover h-24 w-full">
-                        <div class="p-3">
-                            <p class="text-xs font-semibold text-gray-800 leading-tight line-clamp-2">Você não está sozinho! Hoje 503 pessoas estão conectadas...</p>
-                            <span class="text-[10px] text-blue-500 mt-1 block">#TransCare</span>
-                        </div>
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Condições Crônicas:</span>
+                        <span class="font-medium text-right">Diabetes</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Tipo de TH:</span>
+                        <span class="font-medium text-right">Estradiol</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Data de Início da TH:</span>
+                        <span class="font-medium text-right">15/03/2008</span>
                     </div>
                 </div>
             </div>
 
+            <!-- 2.3. Cirurgias e Procedimentos -->
+            <div class="bg-white rounded-[2rem] shadow-xl p-6">
+                <h2 class="text-2xl font-bold text-center text-gray-900 mb-6">Cirurgias e Procedimentos</h2>
+                
+                <div class="space-y-2 text-sm text-gray-700">
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Realizados:</span>
+                        <span class="font-medium text-right">Silicone (2010)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Agendados:</span>
+                        <span class="font-medium text-right">Nenhum</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="font-semibold text-gray-500">Desejados:</span>
+                        <span class="font-medium text-right">Orquiectomia, Facial (ainda em análise)</span>
+                    </div>
+                </div>
+            </div>
+            
         </div>
         
         <!-- 3. Barra de Navegação Flutuante (Bottom Nav) -->
         <nav class="fixed bottom-6 left-4 right-4 bg-white rounded-full shadow-2xl py-3 px-6 flex justify-between items-center z-50">
             
-            <!-- Ícone Home (Ativo na Tela Principal) -->
-            <button class="w-1/5 flex justify-center nav-icon active-icon">
+            <!-- Ícone Home -->
+            <button class="w-1/5 flex justify-center nav-icon text-gray-400 hover:text-blue-600">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
             </button>
             
@@ -156,7 +203,7 @@
             </button>
             
             <!-- Botão Central (Adicionar/Relato) -->
-            <button class="bg-blue-600 text-white p-4 rounded-full -mt-8 border-0 border-white shadow-2xl hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition duration-300">
+            <button class="bg-blue-600 text-white p-4 rounded-full -mt-8 border-4 border-white shadow-2xl hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition duration-300">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
             </button>
 
@@ -165,8 +212,8 @@
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
             </button>
             
-            <!-- Ícone Sol/Relato -->
-            <button class="w-1/5 flex justify-center nav-icon text-gray-400 hover:text-blue-600">
+            <!-- Ícone Sol/Relato (Ativo) -->
+            <button class="w-1/5 flex justify-center nav-icon active-icon">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
             </button>
         </nav>
