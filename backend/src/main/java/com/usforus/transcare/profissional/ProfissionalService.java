@@ -60,5 +60,4 @@ public class ProfissionalService {
     public List<Profissional> listarTodos() {
         return profissionais;
     }
-
 }

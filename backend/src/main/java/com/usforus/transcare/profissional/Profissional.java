@@ -29,5 +29,4 @@ public class Profissional {
     public String getEndereco() {
         return endereco;
     }
-
 }

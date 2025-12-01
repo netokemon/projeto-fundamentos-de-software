@@ -25,5 +25,4 @@ public class ProfissionalController {
         List<Profissional> resultado = profissionalService.buscar(especializacao);
         return ResponseEntity.ok(resultado);
     }
-
 }
