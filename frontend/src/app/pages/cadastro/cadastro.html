@@ -1,145 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TransCare - Cadastro</title>
-    <!-- Carrega o Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Define a fonte Inter para o corpo e garante que a página ocupe toda a altura */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Estilização para o seletor (select) ficar igual aos inputs */
-        select.form-select {
-            appearance: none; /* Remove o ícone de seta nativo */
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M10 12L5 7h10L10 12z' fill='%239CA3AF'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            background-size: 0.8em;
-            padding-right: 2.5rem; /* Aumenta o padding para a seta */
-        }
-    </style>
-</head>
 <body class="bg-gray-50">
 
-    <!-- CLASSE ATUALIZADA: Adiciona um gradiente vertical, de claro para escuro -->
-    <div class="min-h-screen bg-gradient-to-b from-blue-400 to-blue-600">
-        <!-- HEADER: Apenas para dar um toque da cor de fundo no topo -->
+    <div class="min-h-screen bg-gradient-to-b from-blue-400 to-blue-600 font-sans">
         <header class="h-24"></header>
 
         <div class="max-w-md mx-auto px-4 md:px-0 pb-16">
             
             <main class="bg-white rounded-t-3xl rounded-b-3xl px-6 py-8 shadow-2xl relative">
-                <!-- Conteúdo do Bloco 1: Informações Básicas -->
                 <div class="text-center mb-8">
                     <h1 class="text-3xl font-bold text-gray-900 mb-2">Cadastro</h1>
                     <p class="text-gray-500 text-sm leading-relaxed">
-                        Vamos criar um perfil personalizado do jeitinho que você precisa! Para isso, precisamos de algumas informações. Bora fazer isso juntes?
+                        Vamos criar um perfil personalizado do jeitinho que você precisa!
                     </p>
                 </div>
             
-                <form class="flex flex-col gap-4">
+                <form [formGroup]="cadastroForm" class="flex flex-col gap-4">
             
-                    <!-- Campos de Input -->
                     <div class="space-y-4">
                         
-                        <!-- Nome Legal -->
+                        <div>
+                            <input
+                                type="text"
+                                formControlName="nomeCompleto"
+                                placeholder="Nome Legal (Obrigatório)"
+                                class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
+                            >
+                        </div>
+
+                        <div>
+                            <input
+                                type="email"
+                                formControlName="email"
+                                placeholder="Seu E-mail (Obrigatório)"
+                                class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
+                            >
+                        </div>
+                        <div>
+                            <input
+                                type="password"
+                                formControlName="senha"
+                                placeholder="Crie uma Senha (Mín. 6 dígitos)"
+                                class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
+                            >
+                        </div>
                         <input
                             type="text"
-                            placeholder="Nome Legal"
-                            class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
-                        >
-                        
-                        <!-- Nome Social -->
-                        <input
-                            type="text"
+                            formControlName="nomeSocial"
                             placeholder="Nome Social"
                             class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
                         >
                         
-                        <!-- Pronomes -->
                         <input
                             type="text"
-                            placeholder="Pronomes"
+                            formControlName="pronomes"
+                            placeholder="Pronomes (ex: Ela/Dela)"
                             class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
                         >
 
-                        <!-- Data de Nascimento -->
                         <input
                             type="text"
+                            formControlName="dataNascimento"
                             placeholder="Data de Nascimento"
                             onfocus="this.type='date'"
                             onblur="this.type='text'"
                             class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
                         >
 
-                        <!-- Identidade de Gênero -->
                         <input
                             type="text"
+                            formControlName="identidadeGenero"
                             placeholder="Identidade de Gênero"
                             class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
                         >
                         
-                        <!-- Etapa da Transição (Simulação de Select) -->
-                        <select class="form-select w-full bg-gray-100 text-gray-500 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 font-medium">
+                        <select formControlName="etapaTransicao" class="form-select w-full bg-gray-100 text-gray-500 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 font-medium">
                             <option value="" disabled selected>Etapa da transição</option>
                             <option value="nao-iniciada">Não Iniciada</option>
                             <option value="em-andamento">Em Andamento</option>
                             <option value="concluida">Concluída</option>
                         </select>
 
-                        <!-- Região onde mora -->
                         <input
                             type="text"
+                            formControlName="regiao"
                             placeholder="Região onde mora"
                             class="w-full bg-gray-100 text-gray-700 rounded-xl px-4 py-3.5 border-none outline-none focus:ring-2 focus:ring-sky-400 placeholder-gray-400 font-medium"
                         >
 
                     </div>
                 </form>
-                
-                <!-- O botão "Continuar" será colocado no final do segundo bloco, como um único botão de ação -->
             </main>
 
-            <!-- Bloco 2: Foto de Perfil (Onde a borda inferior do primeiro bloco se encontra com o topo do segundo) -->
             <div class="mt-8">
                 <div class="bg-white rounded-3xl px-6 py-8 shadow-2xl">
                     <div class="text-center mb-8">
                         <h2 class="text-xl font-bold text-gray-900 mb-2">Foto de Perfil</h2>
                         <p class="text-gray-500 text-sm leading-relaxed">
-                            Opcional, mas ajuda muito! Uma foto nítida e de rosto completo.
+                            Opcional, mas ajuda muito!
                         </p>
                     </div>
 
-                    <!-- Placeholder para a foto -->
                     <div class="flex justify-center items-center mb-6">
                         <div class="w-32 h-32 rounded-full border-4 border-dashed border-sky-400 flex items-center justify-center bg-gray-100 text-sky-400 text-2xl cursor-pointer hover:bg-sky-50 transition-colors">
-                             <!-- Ícone de Câmera (Lucide Icons) -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3L14.5 4z"/><circle cx="12" cy="13" r="3"/></svg>
                         </div>
                     </div>
 
-                    <!-- Opção de upload ou botão para tirar foto -->
                     <button
                         class="w-full bg-blue-100 text-blue-700 font-bold py-3 rounded-xl hover:bg-sky-200 transition-colors">
                         Tirar Foto ou Escolher
                     </button>
-
                 </div>
             </div>
 
-
-            <!-- Botão Continuar (Final da Página) -->
             <button
-                class="mt-8 w-full bg-blue-900 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-sky-700 transition-colors text-lg">
-                Continuar
-            </button>
+    (click)="onSubmit()"
+    class="mt-8 w-full bg-blue-900 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-sky-700 transition-colors text-lg">
+    Cadastrar
+</button>
 
         </div>
     </div>
-
 </body>
 </html>
