@@ -1,162 +1,56 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agenda</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Font: Inter (Carregada com pesos 400, 600, 700) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    /* Define a fonte Inter para o corpo do documento */
-    body {
-        font-family: 'Inter', sans-serif;
-    }
-  </style>
-
-  <!-- Configuração Tailwind para usar Inter como fonte sans (MANTIDA) -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-</head>
-<body class="font-sans"> <!-- Aplica a fonte Inter globalmente -->
-
-<div class="min-h-screen bg-gray-100 pb-28 relative">
+<div class="min-h-screen bg-gray-100 pb-28 relative font-sans">
 
   <header class="bg-white pt-6 pb-4 shadow-sm sticky top-0 z-20">
     <h1 class="text-2xl font-bold text-center text-black">
-      Agenda
+      Minha Agenda
     </h1>
   </header>
 
   <div class="px-5 mt-6 space-y-6">
 
-    <!-- Card do Calendário -->
     <div class="bg-white rounded-[2rem] shadow-xl overflow-hidden">
-
-      <div class="bg-blue-600 text-white py-3 px-4">
-        <div class="grid grid-cols-7 text-center text-xs font-semibold">
-          <span>Dom</span>
-          <span>Seg</span>
-          <span>Ter</span>
-          <span>Qua</span>
-          <span>Qui</span>
-          <span>Sex</span>
-          <span>Sáb</span>
-        </div>
-      </div>
-
-      <div class="p-4">
-        <div class="grid grid-cols-7 gap-y-4 text-center text-sm text-gray-600 font-medium">
-
-          <span class="text-gray-300">27</span>
-          <span class="text-gray-300">28</span>
-          <span class="text-gray-300">29</span>
-          <span class="text-gray-300">30</span>
-
-          <span>01</span>
-          <span>02</span>
-          <span>03</span>
-
-          <span>04</span>
-          <span>05</span>
-          <span>06</span>
-
-          <div class="relative flex items-center justify-center">
-            <!-- Icone de Destaque -->
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-blue-600 absolute z-0">
-              <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z" />
-            </svg>
-            <span class="relative z-10 text-white text-xs font-bold">07</span>
+       <div class="bg-blue-600 text-white py-3 px-4">
+          <div class="grid grid-cols-7 text-center text-xs font-semibold">
+            <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
           </div>
-
-          <span>08</span>
-          <span>09</span>
-          <span>10</span>
-
-          <span>11</span>
-          <span>12</span>
-          <span>13</span>
-          <span>14</span>
-          <span>15</span>
-          <span>16</span>
-          <span>17</span>
-
-          <span>18</span>
-          <span>19</span>
-          <span>20</span>
-          <span>21</span>
-          <span>22</span>
-          <span>23</span>
-          <span>24</span>
-
-          <span>25</span>
-          <span>26</span>
-          <span class="text-blue-500 font-bold">27</span> 
-          <span>28</span>
-
-          <div class="relative flex items-center justify-center">
-             <!-- Icone de Destaque para compromisso (Dia 29) -->
-             <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-blue-600 absolute z-0">
-               <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z" />
-             </svg>
-             <span class="relative z-10 text-white text-xs font-bold">29</span>
-          </div>
-
-          <div class="relative flex items-center justify-center">
-            <!-- Icone de Destaque para compromisso (Dia 30) -->
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-blue-600 absolute z-0">
-                <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z" />
-            </svg>
-            <span class="relative z-10 text-white text-xs font-bold">30</span>
-           </div>
-
-          <span>31</span>
-        </div>
-      </div>
+       </div>
+       <div class="p-4 text-center">
+          <p class="text-gray-400 text-sm">Calendário visual (Seus agendamentos estão na lista abaixo)</p>
+       </div>
     </div>
     
-    <!-- Compromisso: Aplicação de hormônio -->
-    <div class="flex bg-white rounded-[2rem] shadow-lg overflow-hidden h-32">
+    <div *ngIf="!carregando && consultas.length === 0" class="text-center text-gray-500 py-10">
+        <p>Nenhuma consulta agendada.</p>
+        <p class="text-sm">Que tal marcar uma agora?</p>
+    </div>
+
+    <div *ngFor="let consulta of consultas" class="flex bg-white rounded-[2rem] shadow-lg overflow-hidden h-32 transform transition hover:scale-[1.02]">
+      
       <div class="bg-blue-600 w-24 flex flex-col items-center justify-center text-white shrink-0">
-        <span class="text-3xl font-bold leading-none">29</span>
-        <span class="text-3xl font-bold">05</span>
+        <span class="text-3xl font-bold leading-none">
+            {{ consulta.dataHora | date:'dd' }}
+        </span>
+        <span class="text-xl font-bold opacity-80">
+            {{ consulta.dataHora | date:'MM' }}
+        </span>
       </div>
-      <div class="p-4 flex flex-col justify-center">
-        <h3 class="font-bold text-gray-900 text-sm">Aplicação de hormônio, 13:00</h3>
-        <p class="text-xs text-gray-500 mt-1">Dr. Carlos Alberto</p>
-        <p class="text-[11px] text-gray-400 mt-1 leading-tight">
-          Clínica Bem Estar, R. Padre <br> Carapuceiro, 708 - Boa Viagem
+
+      <div class="p-4 flex flex-col justify-center w-full">
+        <h3 class="font-bold text-gray-900 text-sm flex justify-between">
+            <span>{{ consulta.especializacao }}</span>
+            <span class="text-blue-600">{{ consulta.dataHora | date:'HH:mm' }}</span>
+        </h3>
+        
+        <p class="text-xs text-gray-500 mt-1 font-semibold">
+            {{ consulta.nomeMedico }}
+        </p>
+        
+        <p class="text-[11px] text-gray-400 mt-1 leading-tight line-clamp-2">
+          {{ consulta.local }}
         </p>
       </div>
     </div>
 
-    <!-- Compromisso: Treino novo com personal -->
-    <div class="flex bg-white rounded-[2rem] shadow-lg overflow-hidden h-32">
-      <div class="bg-blue-600 w-24 flex flex-col items-center justify-center text-white shrink-0">
-        <span class="text-3xl font-bold leading-none">30</span>
-        <span class="text-3xl font-bold">05</span>
-      </div>
-      <div class="p-4 flex flex-col justify-center">
-        <h3 class="font-bold text-gray-900 text-sm">Treino novo com personal, 08:20</h3>
-        <p class="text-xs text-gray-500 mt-1">Profissional Ana Clara Lima</p>
-        <p class="text-[11px] text-gray-400 mt-1 leading-tight">
-          Academia Corpo Livre, R. Ten. João <br> Cícero, 638 - Boa Viagem
-        </p>
-      </div>
-    </div>
-
-    <!-- Card de Relato Diário -->
     <div class="bg-white rounded-[2rem] shadow-lg overflow-hidden">
       <div class="bg-blue-600 text-white text-center py-3 font-bold text-lg">
         Relato Diário
@@ -164,51 +58,19 @@
       <div class="p-5">
         <p class="text-xs font-bold text-gray-700 mb-2">Humor do dia: Feliz e Sensivel</p>
         <p class="text-xs text-gray-500 leading-relaxed text-justify">
-          Hoje foi um dia de contrastes! Acordei me sentindo feliz com o progresso, mas a tarde veio uma sensibilidade...
+          Este é um espaço para o seu diário. Em breve conectaremos ao backend também!
         </p>
       </div>
     </div>
 
   </div>
 
-  <!-- Barra de Navegação Flutuante -->
   <nav class="fixed bottom-6 left-4 right-4 bg-white rounded-full shadow-2xl py-3 px-6 flex justify-between items-center z-50">
-    <!-- Home -->
-    <button class="text-gray-400 hover:text-blue-600">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-      </svg>
-    </button>
-
-    <!-- Adicionar/Central -->
-    <button class="text-gray-400 hover:text-blue-600">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-      </svg>
-    </button>
-
-    <!-- Calendário (Atual) - Destaque -->
-    <button class="bg-blue-600 text-white p-3 rounded-full -mt-8 border-0 border-gray-100 shadow-lg">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-      </svg>
-    </button>
-
-    <!-- Social -->
-    <button class="text-gray-400 hover:text-blue-600">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-      </svg>
-    </button>
-
-    <!-- AI/Assistência -->
-    <button class="text-gray-400 hover:text-blue-600">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 018.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.42 24.42 0 010 3.46" />
-      </svg>
-    </button>
+     <button class="text-gray-400 hover:text-blue-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></button>
+      <button class="text-gray-400 hover:text-blue-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></button>
+      <button class="bg-blue-600 text-white p-3 rounded-full -mt-8 border-0 shadow-lg"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></button>
+      <button class="text-gray-400 hover:text-blue-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></button>
+      <button class="text-gray-400 hover:text-blue-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></button>
   </nav>
 
 </div>
-</body>
-</html>

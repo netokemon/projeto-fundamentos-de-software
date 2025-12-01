@@ -14,4 +14,8 @@ export class ConsultaService {
   agendar(dados: any): Observable<any> {
     return this.http.post(this.apiUrl, dados);
   }
+
+  getMinhasConsultas(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/minhas`);
+  }
 }
