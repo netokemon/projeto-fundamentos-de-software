@@ -1,4 +1,5 @@
 package com.usforus.transcare.metas;
 
-public record MetasRequest() {
-}
+public record MetasRequest(
+        String nome
+) {}

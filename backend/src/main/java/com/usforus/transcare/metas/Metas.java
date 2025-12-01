@@ -1,5 +1,6 @@
 package com.usforus.transcare.metas;
 
+import com.usforus.transcare.user.User;
 import jakarta.persistence.*;
 
 @Entity
@@ -18,7 +19,15 @@ public class Metas {
         return nome;
     }
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User paciente;
+
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
