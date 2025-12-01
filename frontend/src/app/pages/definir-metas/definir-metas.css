@@ -1,7 +1,19 @@
+/* Gradiente Vibrante */
 .vibrant-background {
     background-image: linear-gradient(135deg, #1e90ff 0%, #007bff 40%, #ff5233 80%, #ff8c00 100%);
     min-height: 100vh;
 }
+
+/* Sombra leve no texto branco */
 .shadow-text {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Estilo do Input (Linha embaixo) */
+.goal-input {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.goal-input:focus {
+    border-bottom: 2px solid #3b82f6; /* Azul ao focar */
 }

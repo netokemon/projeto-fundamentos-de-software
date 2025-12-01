@@ -1,6 +1,6 @@
 <div class="vibrant-background flex flex-col items-center justify-start pt-20 pb-8 min-h-screen relative font-sans">
     
-    <button (click)="voltar()" class="absolute top-6 left-6 text-white hover:bg-white/20 p-2 rounded-full transition">
+    <button (click)="voltar()" class="absolute top-6 left-6 text-white hover:bg-white/20 p-2 rounded-full transition cursor-pointer">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
         </svg>
@@ -11,26 +11,37 @@
     </h1>
     
     <div class="relative w-[90%] max-w-sm sm:max-w-md bg-white rounded-[3rem] p-8 pb-10 shadow-2xl">
+
         <form [formGroup]="metasForm" class="space-y-6">
+            
             <ng-container formArrayName="itens">
+                
                 <div *ngFor="let control of itensControls; let i = index" class="flex items-center space-x-4">
                     <div class="flex-shrink-0 w-8">
                         <span class="text-2xl font-black text-gray-700">{{ i + 1 }}.</span>
                     </div>
+                    
                     <input 
                         type="text" 
                         [formControlName]="i"
                         placeholder="Insira sua meta" 
-                        class="goal-input w-full text-base text-gray-700 placeholder-gray-400 bg-transparent outline-none border-b border-gray-200 focus:border-blue-500 transition-colors py-1">
+                        class="goal-input w-full text-base text-gray-700 placeholder-gray-400 bg-transparent outline-none py-1 transition-colors"
+                    >
                 </div>
+
             </ng-container>
+
         </form>
+        
     </div>
 
     <button 
         (click)="salvarMetas()"
         [disabled]="carregando"
-        class="w-[90%] max-w-sm sm:max-w-md bg-white text-blue-600 font-bold py-4 rounded-xl mt-8 shadow-lg hover:bg-gray-100 transition disabled:opacity-70">
-        {{ carregando ? 'Salvando...' : 'Salvar Metas' }}
+        class="w-[90%] max-w-sm sm:max-w-md bg-white text-blue-600 font-bold py-4 rounded-xl mt-8 shadow-lg hover:bg-gray-100 transition active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed">
+        
+        <span *ngIf="!carregando">Salvar Metas</span>
+        <span *ngIf="carregando">Salvando...</span>
+    
     </button>
 </div>

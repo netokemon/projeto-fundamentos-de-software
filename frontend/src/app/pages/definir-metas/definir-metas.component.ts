@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MetasService } from '../../services/metas.service'; // Ajuste o caminho se necessário
+import { MetasService } from '../../services/metas.service';
+import { forkJoin } from 'rxjs'; // <--- Importação Essencial
 
 @Component({
   selector: 'app-definir-metas',
@@ -27,51 +28,56 @@ export class DefinirMetasComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Cria 6 campos vazios para o usuário preencher
+    // Cria 6 campos vazios
     const itensArray = this.metasForm.get('itens') as FormArray;
     for (let i = 0; i < 6; i++) {
       itensArray.push(this.fb.control(''));
     }
   }
 
-  // Getter para usar no HTML
   get itensControls() {
     return (this.metasForm.get('itens') as FormArray).controls;
   }
 
   salvarMetas() {
-    this.carregando = true;
-    const metasStrings: string[] = this.metasForm.value.itens;
-    
-    // Filtra apenas as que foram preenchidas
-    const metasValidas = metasStrings.filter(m => m && m.trim() !== '');
+    // 1. Filtra metas vazias (para não enviar lixo pro banco)
+    const todasAsMetas: string[] = this.metasForm.value.itens;
+    const metasParaSalvar = todasAsMetas.filter(m => m && m.trim().length > 0);
 
-    if (metasValidas.length === 0) {
-      alert('Preencha pelo menos uma meta!');
-      this.carregando = false;
+    if (metasParaSalvar.length === 0) {
+      alert('Por favor, escreva pelo menos uma meta.');
       return;
     }
 
-    // Salva uma por uma (Loop)
-    let processados = 0;
-    metasValidas.forEach(nome => {
-      this.metasService.criarMeta(nome).subscribe({
-        next: () => {
-          processados++;
-          if (processados === metasValidas.length) {
-            alert('Metas definidas com sucesso!');
-            this.router.navigate(['/progresso-metas']); // Redireciona para visualizar
-          }
-        },
-        error: (err) => {
-          console.error(err);
-          this.carregando = false;
+    this.carregando = true;
+
+    // 2. Prepara o pacote de requisições
+    const requisicoes = metasParaSalvar.map(meta => 
+      this.metasService.criarMeta(meta)
+    );
+
+    // 3. Envia tudo junto e espera terminar
+    forkJoin(requisicoes).subscribe({
+      next: (respostas) => {
+        console.log('Sucesso!', respostas);
+        alert('Metas salvas com sucesso! Vamos para o progresso.');
+        this.router.navigate(['/metas/progresso']);
+      },
+      error: (erro) => {
+        console.error('Erro ao salvar:', erro);
+        this.carregando = false;
+        
+        if (erro.status === 403) {
+          alert('Sessão expirada. Faça login novamente.');
+          this.router.navigate(['/login']);
+        } else {
+          alert('Erro ao salvar. Verifique o console.');
         }
-      });
+      }
     });
   }
-  
+
   voltar() {
-    this.router.navigate(['/']); // Volta para home
+    this.router.navigate(['/']);
   }
 }
