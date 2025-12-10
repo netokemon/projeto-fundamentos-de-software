@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 @Injectable({ providedIn: 'root' })
 export class ApiService {
 
-  private baseUrl = 'https://transcare-api.onrender.com/auth';
+  private baseUrl = 'https://transcare-api.onrender.com/api';
 
   constructor(private http: HttpClient) {}
 
