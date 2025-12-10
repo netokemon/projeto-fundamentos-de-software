@@ -98,3 +98,9 @@ Aqui está um print do quadro dos diagramas de Fluxos de Atividades no Excalidra
 Aqui está um print do quadro de issues no Jira que usamos para acompanhar o projeto TransCare:
 
 <img width="1919" height="1079" alt="Bug Tracker no Jira" src="https://raw.githubusercontent.com/netokemon/projeto-fundamentos-de-software/df708eb7e7cd58219d85b4fe7a99cf09023105be/bug%20tracker.png" />
+
+--- 
+
+## 👩‍💻 Programação em Par
+
+Durante o desenvolvimento do projeto, utilizamos a programação em par. Nessa prática, dois programadores trabalham juntos no mesmo código: um escreve enquanto o outro revisa e dá sugestões. Isso facilitou a troca de ideias e a detecção rápida de erros, garantindo que ambos compreendessem bem o sistema. O resultado foi um trabalho mais organizado, colaborativo e um código de maior qualidade.
