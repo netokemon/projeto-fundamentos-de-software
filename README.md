@@ -89,7 +89,7 @@ Aqui está um print do protótipo Lo-Fi no Excalidraw para o projeto TransCare
 
 Aqui está um print do quadro dos diagramas de Fluxos de Atividades no Excalidraw para o projeto TransCare:
 
-<img width="1919" height="1079" alt="Diagrama de Fluxo de Atividades" src="https://raw.githubusercontent.com/netokemon/projeto-fundamentos-de-software/refs/heads/main/diagrama-atividade.png" />
+<img width="1919" height="1079" alt="Diagrama de Fluxo de Atividades" src="project_assets/att diagrama de atividades.png" />
 
 ---
 
