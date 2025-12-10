@@ -85,6 +85,16 @@ Aqui está um print do protótipo Lo-Fi no Excalidraw para o projeto TransCare
 
 ---
 
+## 🎥 Screencast - Demonstração do Protótipo
+
+Veja o TransCare em ação! Este screencast mostra a navegação completa pelo protótipo:
+
+[![Demonstração do TransCare - Clique para assistir ao vídeo](project_assets/Captura%20de%20tela%202025-12-10%20162933.png)](https://drive.google.com/file/d/1o7WjDcRKKPMY-8CngxFUSEzOIsCvT7lw/view?usp=sharing)
+
+*Clique na imagem acima para assistir à demonstração completa*
+
+---
+
 ## 🧩 Diagrama de Fluxo de Atividades
 
 Aqui está um print do quadro dos diagramas de Fluxos de Atividades no Excalidraw para o projeto TransCare:
