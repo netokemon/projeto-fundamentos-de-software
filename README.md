@@ -93,11 +93,11 @@ Aqui está um print do quadro dos diagramas de Fluxos de Atividades no Excalidra
 
 ---
 
-## 🐞 Bug Tracker no Jira
+## 🐞 Bug Tracker no Google Sheets
 
-Aqui está um print do quadro de issues no Jira que usamos para acompanhar o projeto TransCare:
+Aqui está um print do quadro de issues no Google Sheets que usamos para acompanhar o projeto TransCare:
 
-<img width="1919" height="1079" alt="Bug Tracker no Jira" src="https://raw.githubusercontent.com/netokemon/projeto-fundamentos-de-software/df708eb7e7cd58219d85b4fe7a99cf09023105be/bug%20tracker.png" />
+<img width="1440" height="661" alt="Bug Tracker no Google Sheets" src="project_assets/Captura de tela 2025-12-10 103635.png" />
 
 --- 
 
