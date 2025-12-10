@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ConsultaService {
 
-  private apiUrl = 'http://localhost:8080/api/consultas';
+  private apiUrl = `${environment.apiUrl}/api/consultas`;
 
   constructor(private http: HttpClient) { }
 
