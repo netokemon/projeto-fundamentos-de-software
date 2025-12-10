@@ -72,16 +72,17 @@ O principal diferencial do TransCare é o seu foco exclusivo e o acompanhamento 
 
 Aqui está um print do protótipo Lo-Fi no Excalidraw para o projeto TransCare
 
-<img width="1919" height="1079" alt="Protótipo Lo-Fi" src="https://github.com/netokemon/projeto-fundamentos-de-software/blob/main/prot%C3%B3tipo%20lo-fi.png" />
+<img width="1919" height="1079" alt="Protótipo Lo-Fi" src="project_assets/unnamed%20(31).png" />
 
 ---
 
-## Vídeo Screencast Protótipo Lo-Fi
+## 🎥 Vídeo Screencast Protótipo Lo-Fi
 
-Aqui está um print do protótipo Lo-Fi no Excalidraw para o projeto TransCare
+Assista à demonstração do protótipo Lo-Fi do TransCare em ação:
 
-[![Watch the video]()<img width="1044" height="776" alt="Captura de Tela 2025-10-22 às 18 56 09" src="https://github.com/user-attachments/assets/9412e378-3ee0-4804-b774-3aebcad4ca2e" />
-](https://drive.google.com/file/d/1xtvB1YuedRM4vLxrWENquD1-19D7A0J0/view?usp=sharing)
+[![Assista ao vídeo do protótipo TransCare](https://github.com/user-attachments/assets/9412e378-3ee0-4804-b774-3aebcad4ca2e)](https://drive.google.com/file/d/1xtvB1YuedRM4vLxrWENquD1-19D7A0J0/view?usp=sharing)
+
+*Clique na imagem para assistir ao screencast completo*
 
 ---
 
