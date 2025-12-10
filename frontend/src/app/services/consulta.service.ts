@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 })
 export class ConsultaService {
 
-  private apiUrl = 'https://transcare-api.onrender.com/consultas`;
+  private apiUrl = 'https://transcare-api.onrender.com/consultas';
 
   constructor(private http: HttpClient) { }
 
