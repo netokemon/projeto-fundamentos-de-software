@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = `${environment.apiUrl}/auth`;
+  private apiUrl = 'https://transcare-api.onrender.com/auth`;
 
   constructor(private http: HttpClient) { }
 
