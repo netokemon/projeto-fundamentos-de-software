@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class MetasService {
 
-  private apiUrl = 'http://localhost:8080/api/metas';
+  private apiUrl = `${environment.apiUrl}/api/metas`;
 
   constructor(private http: HttpClient) { }
 
