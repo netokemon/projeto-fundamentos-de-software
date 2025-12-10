@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 })
 export class MetasService {
 
-  private apiUrl = 'https://transcare-api.onrender.com/metas`;
+  private apiUrl = 'https://transcare-api.onrender.com/metas';
 
   constructor(private http: HttpClient) { }
 
